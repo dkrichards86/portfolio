@@ -37,6 +37,20 @@ aside {
     top: 24px;
 }
 
+aside .menu-icon {
+    height: 32px;
+    width: 32px;
+    display: none;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../images/menu.png");
+}
+
+aside .social-links {
+    display: block;
+}
+
 aside a {
     padding: 4px;
     display:inline-block;
@@ -104,18 +118,6 @@ main {
     background-color: #fff;
     border-bottom: 1px solid #e5e5e5;
     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, .2);
-}
-
-.block {
-    width: 48%;
-    margin: 8px 1%;
-    background-color: #fff;
-    border-bottom: 1px solid #e5e5e5;
-    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, .2);
-    height: 128px;
-    display: inline-block;
-    padding: 12px;
-    box-sizing: border-box;
 }
 
 .half {
@@ -235,6 +237,14 @@ main {
     
     .content h1 .largetext {
         font-size: 42px;
+    }
+    
+    aside .menu-icon {
+        display: inline-block;
+    }
+    
+    aside .social-links {
+        display: none;
     }
 }
 
