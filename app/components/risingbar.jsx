@@ -30,6 +30,11 @@ class RisingBar extends React.Component {
                         MySQL RDBMS.
                     </p>
                     <p>
+                        As I began to push myself to break from comfort zones, I managed
+                        to break the entire app. At that time, I learned the vital importance
+                        of Git.  I used it at work, but didn't use it as well as I should.
+                    </p>
+                    <p>
                         I set up a working prototype pretty quickly, but it rendered
                         static HTML pages and lacked the modern app punch-up.  It was then
                         that I decided to break away from a Python/Flask/Jinja2 project
