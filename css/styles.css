@@ -307,4 +307,8 @@ main {
     .content h2 {
         font-size: 18px;
     }
+    
+    nav a {
+        padding: 4px 12px;
+    }
 }

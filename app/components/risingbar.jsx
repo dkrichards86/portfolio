@@ -1,5 +1,6 @@
 import React from 'react';
 import {PageHead} from "./pagehead";
+import Projects from "./projects";
 
 const METATAGS = {
     title: "Keith Richards - Biography",
@@ -13,6 +14,7 @@ class RisingBar extends React.Component {
     render() {
         return (
             <div className="content">
+                <Projects />
                 <div className="box">
                     <h1>Project: Rising Bar App</h1>
                     <h2>risingbarapp.com</h2>
