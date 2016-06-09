@@ -35,6 +35,7 @@ aside {
     position: absolute;
     right: 24px;
     top: 24px;
+    text-align: right;
 }
 
 aside .menu-icon {
@@ -230,6 +231,16 @@ main {
 }
 
 @media only screen and (max-width: 640px) {
+    aside .social-links {
+        display: inline-block;
+    }
+    
+    aside .menu-icon {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 640px) {
     .content h1 {
         line-height: 1.4;
         font-size: 32px;
@@ -239,12 +250,23 @@ main {
         font-size: 42px;
     }
     
+    .content h2 {
+        font-size: 21px;
+    }
+    
     aside .menu-icon {
         display: inline-block;
     }
     
     aside .social-links {
         display: none;
+        background: rgba(0,0,0,.4);
+        box-shadow: 0 4px 8px rgba(0,0,0,.2);
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 8px 4px;
+        border-radius: 16px;
     }
 }
 
@@ -260,5 +282,29 @@ main {
     
     box {
         padding: 12px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    header {
+        padding: 12px 12px 0;
+    }    
+    
+    aside {
+        top: 12px;
+        right: 12px;
+    }
+    
+    .content h1 {
+        line-height: 1.4;
+        font-size: 28px;
+    }
+    
+    .content h1 .largetext {
+        font-size: 36px;
+    }
+    
+    .content h2 {
+        font-size: 18px;
     }
 }
