@@ -15,6 +15,7 @@ export default class Header extends React.Component {
                     <MenuItem label="Life" route="personal" icon="code" />
                     <MenuItem label="Work" route="professional" icon="person" />
                     <MenuItem label="Resume" route="resume" icon="work" />
+                    <MenuItem label="Projects" route="projects" icon="work" />
                 </Menu>
             </header>
         );

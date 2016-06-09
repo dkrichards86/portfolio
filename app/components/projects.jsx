@@ -17,8 +17,8 @@ class Projects extends React.Component {
             <div className="content">
                 <div className="box">
                     <h1>Check out my projects</h1>
-                    <Link to="projects/portfolio"><h3>My Portfolio</h3></Link>
-                    <Link to="projects/risingbar"><h3>Rising Bar App</h3></Link>
+                    <Link to="portfolio"><h3>My Portfolio</h3></Link>
+                    <Link to="risingbar"><h3>Rising Bar App</h3></Link>
                 </div>
             </div>
         );

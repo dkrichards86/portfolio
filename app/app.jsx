@@ -20,11 +20,11 @@ ReactDOM.render(
         <Route path="/" component={Main}>
             <IndexRoute component={Home}/>
             <Route path="personal" component={Personal} />
-            <Route path="projects/portfolio" component={Portfolio} />
+            <Route path="portfolio" component={Portfolio} />
             <Route path="professional" component={Professional} />
             <Route path="projects" component={Projects} />
             <Route path="resume" component={Resume} />
-            <Route path="projects/risingbar" component={RisingBar} />
+            <Route path="risingbar" component={RisingBar} />
         </Route>
         <Route path="*" component={Invalid}/>
     </Router>,
