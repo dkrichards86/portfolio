@@ -7,8 +7,11 @@ import Home from './components/home';
 import Invalid from './components/invalid';
 import Main from './components/main';
 import Personal from './components/personal';
+import Portfolio from './components/portfolio';
 import Professional from './components/professional';
+import Projects from './components/projects';
 import Resume from './components/resume';
+import RisingBar from './components/risingbar';
 
 //const appHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 
@@ -18,6 +21,10 @@ ReactDOM.render(
             <IndexRoute component={Home}/>
             <Route path="personal" component={Personal} />
             <Route path="professional" component={Professional} />
+            <Route path="projects" component={Projects}>
+                <Route path="portfolio" component={Portfolio} />
+                <Route path="risingbar" component={RisingBar} />
+            </Route>
             <Route path="resume" component={Resume} />
         </Route>
         <Route path="*" component={Invalid}/>

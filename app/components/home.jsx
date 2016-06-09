@@ -7,7 +7,7 @@ const METATAGS = {
     title: "Keith Richards - Raleigh, NC Web Developer",
     meta: {
         name: "description",
-        content: "This is the portfolio of Raleigh, NC based web developer and all-around cool guy, Keith Richards."
+        content: "This is the portfolio of Raleigh, NC based web developer and consummate bro, Keith Richards."
     }
 };
 
