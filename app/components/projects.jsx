@@ -15,11 +15,14 @@ class Projects extends React.Component {
     render() {
         return (
             <div className="content">
-                <div className="box">
-                    <h1>Check out my projects</h1>
-                    <Link to="portfolio"><h3>My Portfolio</h3></Link>
-                    <Link to="risingbar"><h3>Rising Bar App</h3></Link>
-                </div>
+                <Link to="portfolio" className="box half">
+                    <h3>My Portfolio</h3>
+                    <p>Check out my portfolio</p>
+                </Link>
+                <Link to="risingbar" className="box half">
+                    <h3>Rising Bar App</h3>
+                    <p>Learn more about Rising Bar App</p>
+                </Link>
             </div>
         );
     }

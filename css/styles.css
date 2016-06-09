@@ -111,8 +111,8 @@ main {
 
 .box {
     display: block;
-    width: 96%;
-    margin: 0 2% 8px;
+    width: 98%;
+    margin: 0 1% 8px;
     padding: 16px;
     box-sizing: border-box;
     border-radius: 3px;
