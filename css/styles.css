@@ -6,7 +6,9 @@ body {
     font-size: 16px;
 }
 
+
 /* Header Styles */
+
 header {
     width: 100%;
     z-index: 10;
@@ -27,10 +29,12 @@ header a .headline {
     display: block;
     font-size: 48px;
     font-weight: 400;
-    line-height:1;
+    line-height: 1;
 }
 
+
 /* Social Media Aside */
+
 aside {
     position: absolute;
     right: 24px;
@@ -54,7 +58,7 @@ aside .social-links {
 
 aside a {
     padding: 4px;
-    display:inline-block;
+    display: inline-block;
 }
 
 aside a img {
@@ -63,7 +67,9 @@ aside a img {
     vertical-align: middle;
 }
 
+
 /* Navigation */
+
 nav {
     width: 100%;
     text-align: left;
@@ -82,7 +88,7 @@ nav a {
     font-weight: 300;
     text-transform: uppercase;
     width: auto;
-    text-align:center;
+    text-align: center;
 }
 
 nav a.active,
@@ -94,7 +100,9 @@ nav a:hover {
     box-shadow: 0 3px 0 #efefef;
 }
 
+
 /* Main Content */
+
 main {
     position: relative;
     background: #f1f1f1;
@@ -139,7 +147,7 @@ main {
 }
 
 .content h2 {
-    margin:0;
+    margin: 0;
 }
 
 .content h3 {
@@ -155,77 +163,66 @@ main {
     color: #666;
 }
 
-/* Resume Page */
-#resume h3:hover {
-    box-shadow: none;
-}
 
-#resume h3 {
-    display:block;
-    margin: 4px 0;
-}
+/* Resume Page */
 
 .work-experience {
     padding: 0 12px;
 }
 
-.css-switch {
-    position: absolute;
-    bottom: 24px;
-    right: 24px;
-    width: auto;
-    z-index: 20;
-}
 
 /* Main Content Transition */
-.fade-leave {
+
+.slide-enter {
+    position: absolute;
+    transition-duration: .3s;
+    transition-property: transform, opacity;
+    transition-timing-function: ease-out;
+    transform: translate3d(-100%, 0, 0);
+    z-index: 10000;
+}
+
+.slide-enter.slide-enter-active {
+    transform: translate3d(0, 0, 0);
+}
+
+.slide-leave {
+    position: absolute;
+    transition-duration: .3s;
+    transition-property: transform, opacity;
+    transition-timing-function: ease-out;
+    transform: translate3d(0, 0, 0);
     opacity: 1;
 }
 
-.fade-leave.fade-leave-active {
-    opacity: 0;
-    transition: all 400ms ease-in;
-}
- 
-.fade-enter {
-    opacity: 0;
-}
-
-.fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: all 400ms ease-in;
+.slide-leave.slide-leave-active {
+    transform: translate3d(15%, 0, 0);
+    opacity: 0.2;
 }
 
 @media (max-width: 800px) {
-    body{
+    body {
         background: #FFF;
     }
-    
     header a .headline {
         font-size: 42px;
     }
-    
     main:before {
-        display:none;
+        display: none;
     }
-    
     nav a {
         font-size: 18px;
     }
-    
     main {
         background: #fff;
     }
-    
     .content {
         top: 0;
     }
-    
     .box {
         width: 100%;
         margin: 0;
         border-radius: 0;
-        border-bottom: none;
         box-shadow: none
     }
 }
@@ -234,7 +231,6 @@ main {
     aside .social-links {
         display: inline-block;
     }
-    
     aside .menu-icon {
         display: none;
     }
@@ -245,23 +241,19 @@ main {
         line-height: 1.4;
         font-size: 32px;
     }
-    
     .content h1 .largetext {
         font-size: 42px;
     }
-    
     .content h2 {
         font-size: 21px;
     }
-    
     aside .menu-icon {
         display: inline-block;
     }
-    
     aside .social-links {
         display: none;
-        background: rgba(0,0,0,.4);
-        box-shadow: 0 4px 8px rgba(0,0,0,.2);
+        background: rgba(0, 0, 0, .4);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
         position: relative;
         z-index: 2;
         text-align: center;
@@ -274,12 +266,10 @@ main {
     header a .headline {
         font-size: 36px;
     }
-
     nav a {
         font-size: 14px;
         margin: 16px 0 2px;
     }
-    
     box {
         padding: 12px;
     }
@@ -288,26 +278,21 @@ main {
 @media only screen and (max-width: 360px) {
     header {
         padding: 12px 12px 0;
-    }    
-    
+    }
     aside {
         top: 12px;
         right: 12px;
     }
-    
     .content h1 {
         line-height: 1.4;
         font-size: 28px;
     }
-    
     .content h1 .largetext {
         font-size: 36px;
     }
-    
     .content h2 {
         font-size: 18px;
     }
-    
     nav a {
         padding: 4px 12px;
     }

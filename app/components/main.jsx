@@ -9,7 +9,7 @@ export default class Main extends React.Component {
                 <Header />
                 <ReactCSSTransitionGroup
                     component="main"
-                    transitionName="fade"
+                    transitionName="slide"
                     transitionEnterTimeout={400}
                     transitionLeaveTimeout={400}
                 >
