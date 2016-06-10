@@ -1,9 +1,9 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: #666;
     background: #f1f1f1;
+    color: #666;
+    line-height: 1.6;
     font-size: 16px;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -11,13 +11,13 @@ body {
 
 header {
     width: 100%;
-    z-index: 10;
+    height: auto;
+    padding: 24px 24px 0;
     box-sizing: border-box;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
     background-color: #0288D1;
     text-align: left;
-    padding: 24px 24px 0;
-    height: auto;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
 }
 
 header a {
@@ -43,9 +43,9 @@ aside {
 }
 
 aside .menu-icon {
+    display: none;
     height: 32px;
     width: 32px;
-    display: none;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -57,13 +57,13 @@ aside .social-links {
 }
 
 aside a {
-    padding: 4px;
     display: inline-block;
+    padding: 4px;
 }
 
 aside a img {
-    height: 32px;
     width: auto;
+    height: 32px;
     vertical-align: middle;
 }
 
@@ -72,22 +72,22 @@ aside a img {
 
 nav {
     width: 100%;
-    text-align: left;
     background: #0288D1;
+    text-align: left;
     white-space: nowrap;
     overflow: hidden;
 }
 
 nav a {
-    text-decoration: none;
-    color: #efefef;
     display: inline-block;
+    width: auto;
     margin: 16px 0 3px;
     padding: 4px 16px;
+    color: #efefef;
     font-size: 21px;
     font-weight: 300;
     text-transform: uppercase;
-    width: auto;
+    text-decoration: none;
     text-align: center;
 }
 
@@ -108,30 +108,30 @@ main {
     background: #f1f1f1;
 }
 
-.content {
-    position: absolute;
-    top: 48px;
-    right: 0;
-    left: 0;
-    margin: 0 auto;
-    max-width: 800px;
-}
-
 .box {
     display: block;
     width: 98%;
     margin: 0 1% 8px;
     padding: 16px;
     box-sizing: border-box;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, .2);
+    border-bottom: 1px solid #e5e5e5;
     border-radius: 3px;
     background-color: #fff;
-    border-bottom: 1px solid #e5e5e5;
-    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, .2);
 }
 
 .half {
     display: inline-block;
     width: 48%;
+}
+
+.content {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    left: 0;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .content h1 {
@@ -204,26 +204,28 @@ main {
     body {
         background: #FFF;
     }
+    
     header a .headline {
         font-size: 42px;
     }
-    main:before {
-        display: none;
-    }
+    
     nav a {
         font-size: 18px;
     }
+    
     main {
         background: #fff;
     }
+    
     .content {
         top: 0;
     }
+    
     .box {
         width: 100%;
         margin: 0;
+        box-shadow: none;
         border-radius: 0;
-        box-shadow: none
     }
 }
 
@@ -231,25 +233,17 @@ main {
     aside .social-links {
         display: inline-block;
     }
+    
     aside .menu-icon {
         display: none;
     }
 }
 
 @media only screen and (max-width: 640px) {
-    .content h1 {
-        line-height: 1.4;
-        font-size: 32px;
-    }
-    .content h1 .largetext {
-        font-size: 42px;
-    }
-    .content h2 {
-        font-size: 21px;
-    }
     aside .menu-icon {
         display: inline-block;
     }
+    
     aside .social-links {
         display: none;
         background: rgba(0, 0, 0, .4);
@@ -260,16 +254,31 @@ main {
         padding: 8px 4px;
         border-radius: 16px;
     }
+    
+    .content h1 {
+        line-height: 1.4;
+        font-size: 32px;
+    }
+    
+    .content h1 .largetext {
+        font-size: 42px;
+    }
+    
+    .content h2 {
+        font-size: 21px;
+    }
 }
 
 @media only screen and (max-width: 500px) {
     header a .headline {
         font-size: 36px;
     }
+    
     nav a {
         font-size: 14px;
         margin: 16px 0 2px;
     }
+    
     box {
         padding: 12px;
     }
@@ -278,22 +287,27 @@ main {
 @media only screen and (max-width: 360px) {
     header {
         padding: 12px 12px 0;
+    }    
+    
+    nav a {
+        padding: 4px 12px;
     }
+    
     aside {
         top: 12px;
         right: 12px;
     }
+    
     .content h1 {
         line-height: 1.4;
         font-size: 28px;
     }
+    
     .content h1 .largetext {
         font-size: 36px;
     }
+    
     .content h2 {
         font-size: 18px;
-    }
-    nav a {
-        padding: 4px 12px;
     }
 }
