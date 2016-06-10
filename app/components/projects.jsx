@@ -4,10 +4,10 @@ import { Link } from 'react-router';
 import {PageHead} from "./pagehead";
 
 const METATAGS = {
-    title: "Keith Richards - Raleigh, NC Web Developer",
+    title: "Keith Richards - Projects",
     meta: {
         name: "description",
-        content: "This is the project page of Keith Richards."
+        content: "Take a look at some of the Keith Richards' projects."
     }
 };
 

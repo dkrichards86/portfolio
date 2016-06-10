@@ -2,10 +2,10 @@ import React from 'react';
 import {PageHead} from "./pagehead";
 
 const METATAGS = {
-    title: "Keith Richards - Biography",
+    title: "Keith Richards - Rising Bar App",
     meta: {
         name: "description",
-        content: "You should check out my potfolio project.  It's pretty great."
+        content: "Rising Bar App is a series of weight training calculators and logs. The project is still in development."
     }
 };
 
