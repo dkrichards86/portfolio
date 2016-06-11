@@ -15,7 +15,9 @@ class RisingBar extends React.Component {
             <div className="content">
                 <div className="box">
                     <h1>Project: Rising Bar App</h1>
-                    <h2>risingbarapp.com</h2>
+                    <a href="http://www.risingbarapp.com" title="Rising Bar App">
+                        <h2>risingbarapp.com</h2>
+                    </a>
                     <p>
                         Rising Bar began as a fun side project.  I had recently 
                         completed a MonogDB certification course and wanted to apply
@@ -45,6 +47,10 @@ class RisingBar extends React.Component {
                         The scope of the project has changed several times.  I'd
                         love to launch it as a hybrid app and eventually convert to
                         a native app.
+                    </p>
+                    <p>
+                        If you decide to check out some of the code (available on my GitHub),
+                        please pardon the mess. I haven't fully converted the codebase.
                     </p>
                 </div>
             </div>

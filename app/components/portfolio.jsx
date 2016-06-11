@@ -16,6 +16,9 @@ class Portfolio extends React.Component {
             <div className="content">
                 <div className="box">
                     <h1>Project: Portfolio</h1>
+                    <a href="http://www.dkrichards.com" title="Keith Richards' portfolio">
+                        <h2>dkrichards.com</h2>
+                    </a>
                     <p>
                         My portfolio project was an opportunity for me to learn 
                         some more advanced React concepts.
