@@ -22,6 +22,10 @@ class Projects extends React.Component {
                     <h3>Rising Bar App</h3>
                     <p>Learn more about Rising Bar App</p>
                 </Link>
+                <Link to="reactpagehead" className="box half">
+                    <h3>React-PageHead</h3>
+                    <p>Available on NPM!</p>
+                </Link>
             </div>
         );
     }

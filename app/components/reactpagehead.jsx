@@ -37,9 +37,7 @@ class ReactPagehead extends React.Component {
                         In time, I finally felt confident enough in my project to publish it.
                     </p>
                     <p>
-                        The project is available on 
-                        <a href="https://www.npmjs.com/package/react-pagehead" title="React-PageHead on NPM">NPM</a> and 
-                        <a href="https://github.com/dkrichards86/react-pagehead" title="React-PageHead on GitHub">Github</a>.
+                        The project is available on <a href="https://www.npmjs.com/package/react-pagehead" title="React-PageHead on NPM">NPM</a> and <a href="https://github.com/dkrichards86/react-pagehead" title="React-PageHead on GitHub">Github</a>.
                     </p>
                 </div>
             </div>
