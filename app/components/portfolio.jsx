@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-
-import {PageHead} from "./pagehead";
+import PageHead from "react-pagehead";
 
 const METATAGS = {
     title: "Keith Richards - Portfolio",

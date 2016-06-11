@@ -1,5 +1,5 @@
 import React from 'react';
-import {PageHead} from "./pagehead";
+import PageHead from "react-pagehead";
 
 const METATAGS = {
     title: "Keith Richards - Professional Life",
