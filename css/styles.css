@@ -1,5 +1,5 @@
 body {
-    background: #f1f1f1;
+    background: #efefef;
     color: #666;
     line-height: 1.6;
     font-size: 16px;
@@ -61,6 +61,7 @@ aside .menu-icon {
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url("../images/menu.png");
+    vertical-align: middle;
 }
 
 aside .social-links {
@@ -213,31 +214,12 @@ main {
 }
 
 @media (max-width: 800px) {
-    body {
-        background: #FFF;
-    }
-    
-    header a .headline {
-        font-size: 42px;
-    }
-    
     nav a {
         font-size: 18px;
     }
     
     main {
-        background: #fff;
-    }
-    
-    .content {
-        top: 0;
-    }
-    
-    .box {
-        width: 100%;
-        margin: 0;
-        box-shadow: none;
-        border-radius: 0;
+        margin-top: 132px;
     }
 }
 
@@ -287,29 +269,17 @@ main {
     }
     
     nav a {
-        font-size: 14px;
-        margin: 16px 0 2px;
+        font-size: 16px;
+        margin: 0px 4px;
+        padding: 0 8px;
     }
     
-    box {
+    .box {
         padding: 12px;
     }
 }
 
 @media only screen and (max-width: 360px) {
-    header {
-        padding: 12px 12px 0;
-    }    
-    
-    nav a {
-        padding: 4px 12px;
-    }
-    
-    aside {
-        top: 12px;
-        right: 12px;
-    }
-    
     .content h1 {
         line-height: 1.4;
         font-size: 28px;
