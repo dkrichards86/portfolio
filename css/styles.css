@@ -168,14 +168,15 @@ main {
     margin: 4px 5px;
 }
 
-.content h3:hover {
-    box-shadow: 0 2px 0 #e5e5e5;
-}
-
 .content a {
     color: #666;
 }
 
+
+.blurb {
+    margin: 0;
+    font-size: 21px;
+}
 
 /* Resume Page */
 

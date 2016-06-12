@@ -15,11 +15,14 @@ class Home extends React.Component {
         return (
             <div className="content">
                 <div className="box">
-                    <h1><span className="largetext">Keith Richards </span>Raleigh, NC Based Web Developer</h1>
-                    <Link to="professional"><h3>Professional Web Developer.</h3></Link>
-                    <Link to="personal"><h3>Amateur Powerlifter.</h3></Link>
-                    <Link to="resume"><h3>Former Marine.</h3></Link>
-                    <h3>Consummate Bro.</h3>
+                    <h1 className="largetext">Keith Richards</h1>
+                    <section className="blurb">
+                        <strong>I am a...</strong>
+                        <h3><Link to="professional">Professional Web Developer</Link></h3>
+                        <h3><Link to="personal">Amateur Powerlifter</Link></h3>
+                        <h3><Link to="resume">Former Marine</Link></h3>
+                        <h3>Consummate Bro</h3>
+                    </section>
                 </div>
             </div>
         );
