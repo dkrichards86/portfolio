@@ -123,8 +123,8 @@ main {
 
 .box {
     display: block;
-    width: 98%;
-    margin: 0 1% 16px;
+    width: 96%;
+    margin: 0 2% 16px;
     padding: 16px;
     box-sizing: border-box;
     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, .2);
@@ -135,7 +135,7 @@ main {
 
 .half {
     display: inline-block;
-    width: 48%;
+    width: 46%;
 }
 
 .content {
@@ -251,7 +251,7 @@ main {
     
     .half {
         display: block;
-        width: 98%;
+        width: 96%;
     }
     
     .content h1 {
