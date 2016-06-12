@@ -12,7 +12,7 @@ body {
 header {
     width: 100%;
     height: auto;
-    padding: 24px 24px 0;
+    padding: 24px 0 0;
     box-sizing: border-box;
     z-index: 10;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
@@ -30,6 +30,7 @@ header a .headline {
     font-size: 48px;
     font-weight: 400;
     line-height: 1;
+    padding-left: 24px;
 }
 
 
@@ -72,8 +73,8 @@ aside a img {
 
 nav {
     width: 100%;
-    background: #0288D1;
-    text-align: left;
+    background: #fafafa;
+    text-align: center;
     white-space: nowrap;
     overflow: hidden;
 }
@@ -83,7 +84,7 @@ nav a {
     width: auto;
     margin: 16px 0 3px;
     padding: 4px 16px;
-    color: #efefef;
+    color: #555;
     font-size: 21px;
     font-weight: 300;
     text-transform: uppercase;
@@ -93,11 +94,11 @@ nav a {
 
 nav a.active,
 nav a.active:hover {
-    box-shadow: 0 3px 0 #F57C00;
+    box-shadow: 0 3px 0 #d14b02;
 }
 
 nav a:hover {
-    box-shadow: 0 3px 0 #efefef;
+    box-shadow: 0 3px 0 #d10288;
 }
 
 
