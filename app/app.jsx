@@ -19,13 +19,13 @@ ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={Main}>
             <IndexRoute component={Home}/>
-            <Route path="reactpagehead" component={ReactPagehead} />
             <Route path="personal" component={Personal} />
-            <Route path="portfolio" component={Portfolio} />
             <Route path="professional" component={Professional} />
             <Route path="projects" component={Projects} />
+            <Route path="projects/portfolio" component={Portfolio} />
+            <Route path="projects/reactpagehead" component={ReactPagehead} />
+            <Route path="projects/risingbar" component={RisingBar} />
             <Route path="resume" component={Resume} />
-            <Route path="risingbar" component={RisingBar} />
         </Route>
         <Route path="*" component={Invalid}/>
     </Router>,

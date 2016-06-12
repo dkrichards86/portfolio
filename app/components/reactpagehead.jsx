@@ -5,7 +5,7 @@ const METATAGS = {
     title: "Keith Richards - Rising Bar App",
     meta: {
         name: "description",
-        content: "Rising Bar App is a series of weight training calculators and logs. The project is still in development."
+        content: "React-PageHead is a higher order component published by Raleigh, NC web developer Keith Richards"
     }
 };
 
@@ -37,7 +37,7 @@ class ReactPagehead extends React.Component {
                         In time, I finally felt confident enough in my project to publish it.
                     </p>
                     <p>
-                        The project is available on <a href="https://www.npmjs.com/package/react-pagehead" title="React-PageHead on NPM">NPM</a> and <a href="https://github.com/dkrichards86/react-pagehead" title="React-PageHead on GitHub">Github</a>.
+                        The project is available on <a href="https://www.npmjs.com/package/react-pagehead" title="React-PageHead on NPM">NPM</a> and <a href="https://github.com/dkrichards86/react-pagehead" title="React-PageHead on GitHub">GitHub</a>.
                     </p>
                 </div>
             </div>

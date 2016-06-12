@@ -14,15 +14,15 @@ class Projects extends React.Component {
     render() {
         return (
             <div className="content">
-                <Link to="portfolio" className="box half">
+                <Link to="/projects/portfolio" className="box half">
                     <h3>My Portfolio</h3>
                     <p>Check out my portfolio</p>
                 </Link>
-                <Link to="risingbar" className="box half">
+                <Link to="/projects/risingbar" className="box half">
                     <h3>Rising Bar App</h3>
                     <p>Learn more about Rising Bar App</p>
                 </Link>
-                <Link to="reactpagehead" className="box half">
+                <Link to="/projects/reactpagehead" className="box half">
                     <h3>React-PageHead</h3>
                     <p>Available on NPM!</p>
                 </Link>
