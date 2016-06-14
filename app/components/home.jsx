@@ -21,11 +21,11 @@ class Home extends React.Component {
                     <div className="box">
                         <h1 className="largetext">Keith Richards</h1>
                         <section className="blurb">
-                            <strong>I am a...</strong>
-                            <h3><Link to="/professional">Professional Web Developer</Link></h3>
-                            <h3><Link to="/personal">Amateur Powerlifter</Link></h3>
-                            <h3><Link to="/resume">Former Marine</Link></h3>
-                            <h3>Consummate Bro</h3>
+                            <p>
+                                I am a professional web developer, an amateur powerlifter, a former Marine, and the consummate bro.
+                            </p>
+                            <Link to="/personal" className="home-btn">About Me</Link>
+                            <Link to="/resume" className="home-btn">My Work</Link>
                         </section>
                     </div>
                 </div>
