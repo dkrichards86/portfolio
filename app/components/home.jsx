@@ -14,15 +14,20 @@ class Home extends React.Component {
     render() {
         return (
             <div className="content">
-                <div className="box">
-                    <h1 className="largetext">Keith Richards</h1>
-                    <section className="blurb">
-                        <strong>I am a...</strong>
-                        <h3><Link to="professional">Professional Web Developer</Link></h3>
-                        <h3><Link to="personal">Amateur Powerlifter</Link></h3>
-                        <h3><Link to="resume">Former Marine</Link></h3>
-                        <h3>Consummate Bro</h3>
-                    </section>
+                <div>
+                    <div className="component-image">
+                        <img src="./images/consummatebro.png" alt="Raleigh, NC web developer Keith Richards is the consummate bro." />
+                    </div>
+                    <div className="box">
+                        <h1 className="largetext">Keith Richards</h1>
+                        <section className="blurb">
+                            <strong>I am a...</strong>
+                            <h3><Link to="/professional">Professional Web Developer</Link></h3>
+                            <h3><Link to="/personal">Amateur Powerlifter</Link></h3>
+                            <h3><Link to="/resume">Former Marine</Link></h3>
+                            <h3>Consummate Bro</h3>
+                        </section>
+                    </div>
                 </div>
             </div>
         );
