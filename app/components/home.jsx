@@ -16,7 +16,7 @@ class Home extends React.Component {
             <div className="content">
                 <div>
                     <div className="component-image">
-                        <img src="./images/consummatebro.png" alt="Raleigh, NC web developer Keith Richards is the consummate bro." />
+                        <h1>Keith Richards</h1>
                     </div>
                     <div className="box">
                         <h1 className="largetext">Keith Richards</h1>
