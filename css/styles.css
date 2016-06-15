@@ -180,7 +180,7 @@ main {
     margin: 0 2%;
     padding: 0;
     background-color: #191919;
-    background-image: url(./images/consummatebro.png);
+    background-image: url(../images/consummatebro.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -196,7 +196,7 @@ main {
     background: rgba(25, 25, 25, .75);
 }
 
-.content-image h1 {
+.component-image h1 {
     position: absolute;
     bottom: 16px;
     left: 32px;

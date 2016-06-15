@@ -19,7 +19,6 @@ class Home extends React.Component {
                         <h1>Keith Richards</h1>
                     </div>
                     <div className="box">
-                        <h1 className="largetext">Keith Richards</h1>
                         <section className="blurb">
                             <p>
                                 I am a professional web developer, an amateur powerlifter, a former Marine, and the consummate bro.
