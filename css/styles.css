@@ -206,6 +206,10 @@ main {
     z-index: 2;
 }
 
+#home .box {
+    padding: 0;
+}
+
 .blurb {
     margin: 0;
     font-size: 21px;
@@ -213,12 +217,14 @@ main {
 
 .blurb p {
     margin: 0;
+    padding: 32px;
+    border-bottom: 1px solid #d5d5d5;
 }
 
 .home-btn {
     display: inline-block;
-    margin: 16px;
-    font-size: 21px;
+    margin: 16px 32px;
+    font-size: 24px;
     text-transform: uppercase;
     text-decoration: none;
 }

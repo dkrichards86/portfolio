@@ -13,7 +13,7 @@ const METATAGS = {
 class Home extends React.Component {
     render() {
         return (
-            <div className="content">
+            <div className="content" id="home">
                 <div>
                     <div className="component-image">
                         <h1>Keith Richards</h1>
