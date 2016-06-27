@@ -9,7 +9,8 @@ import Main from './components/main';
 import Personal from './components/personal';
 import Portfolio from './components/portfolio';
 import Professional from './components/professional';
-import Projects from './components/projects';
+import Project from './components/project';
+import ProjectLanding from './components/projectlanding';
 import ReactPagehead from './components/reactpagehead';
 import Resume from './components/resume';
 import RisingBar from './components/risingbar';
@@ -21,7 +22,8 @@ ReactDOM.render(
             <IndexRoute component={Home}/>
             <Route path="personal" component={Personal} />
             <Route path="professional" component={Professional} />
-            <Route path="projects" component={Projects} />
+            <Route path="projects" component={ProjectLanding} />
+            <Route path="projects/:project" component={Project} />
             <Route path="projects/portfolio" component={Portfolio} />
             <Route path="projects/reactpagehead" component={ReactPagehead} />
             <Route path="projects/risingbar" component={RisingBar} />
