@@ -1,18 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router';
 import PageHead from "react-pagehead";
-const Markdown = require('markdown');
+const markdown = require('markdown').markdown;
 
 class Project extends React.Component {
+    getMarkdown() {
+        let path = `./assets/projects/${this.props.params.userId}`;
+        let content = require(path);
+        let htmlContent = markdown.toHTML(content);
+        return {__html: htmlContent};
+    }
+    
     render() {
-        let md_content = "Hello.\n\n* This is markdown.\n* It is fun\n* Love it or leave it."
-        let html_content = Markdown.toHTML( md_content );
-        
         return (
             <div className="content">
-                <div className="box">
-                    {html_content}
-                </div>
+                <div className="box" dangerouslySetInnerHTML={this.getMarkdown()} />
             </div>
         );
     }
