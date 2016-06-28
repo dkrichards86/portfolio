@@ -3,10 +3,25 @@ import { Link } from 'react-router';
 import PageHead from "react-pagehead";
 const markdown = require('markdown').markdown;
 
+const VALID_PAGES = [
+    "portfolio",
+    "reactpagehead",
+    "risingbarapp"
+];
+
 class Project extends React.Component {
     getMarkdown() {
-        let content = require("../assets/projects/" + this.props.params.project);
-        let htmlContent = markdown.toHTML(content.markup);
+        let pageParam;
+        if (VALID_PAGES.indexOf(this.props.params.project) != -1) {
+            pageParam = this.props.params.project;
+        }
+        else {
+            pageParam = "invalid";
+        }
+        
+        let content = require("../assets/projects/" + pageParam);
+        let htmlContent = markdown.toHTML(content.content);
+        
         return {__html: htmlContent};
     }
     

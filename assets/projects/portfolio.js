@@ -1,5 +1,12 @@
 const Content = {
-	markup: `
+    meta: {
+        title: "Keith Richards - Portfolio",
+        meta: {
+            name: "description",
+            content: "Keith's React portfolio project.  It's a bit over-engineered, but its still pretty sweet."
+        }
+    },
+    content: `
 #Project: Portfolio
 ##[dkrichards.com](http://www.dkrichards.com "Keith Richards' portfolio")
 

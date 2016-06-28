@@ -3,7 +3,7 @@ var path = require('path');
 var nodeModulesPath = path.resolve(__dirname, 'node_modules');
 
 var config = {
-    entry: './app/app.jsx',
+    entry: './app.jsx',
     module: {
         loaders: [
             {
