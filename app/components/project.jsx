@@ -5,9 +5,8 @@ const markdown = require('markdown').markdown;
 
 class Project extends React.Component {
     getMarkdown() {
-        let path = `./assets/projects/${this.props.params.userId}`;
-        let content = require(path);
-        let htmlContent = markdown.toHTML(content);
+        let content = require("../assets/projects/" + this.props.params.project);
+        let htmlContent = markdown.toHTML(content.markup);
         return {__html: htmlContent};
     }
     

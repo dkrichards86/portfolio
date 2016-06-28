@@ -1,5 +1,7 @@
+const Content = {
+	markup: `
 #Project: Portfolio
-##[dkrichards.com]("http://www.dkrichards.com" "Keith Richards' portfolio")
+##[dkrichards.com](http://www.dkrichards.com "Keith Richards' portfolio")
 
 My portfolio project was an opportunity for me to learn some more advanced React concepts.
 
@@ -14,3 +16,7 @@ SEO benefits of these injected meta tags. If I'm satisfied with the results, I
 intend to release the project to NPM.
 
 I intend to add a Linter to this project for better code.  Stay tuned.
+`
+};
+
+module.exports = Content;
