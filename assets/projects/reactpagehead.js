@@ -23,7 +23,7 @@ and write them to the DOM.
 I spent a few weeks watching my changes appear on Google results. In time, I 
 finally felt confident enough in my project to publish it.
 
-The project is available on [NPM](<https://www.npmjs.com/package/react-pagehead "React-PageHead on NPM")
+The project is available on [NPM](https://www.npmjs.com/package/react-pagehead "React-PageHead on NPM")
 and [GitHub](https://github.com/dkrichards86/react-pagehead "React-PageHead on GitHub").
 `
 };
