@@ -6,11 +6,11 @@ const markdown = require('markdown').markdown;
 const VALID_PAGES = [
     "portfolio",
     "reactpagehead",
-    "risingbarapp"
+    "risingbar"
 ];
 
 class Project extends React.Component {
-    getMarkdown() {
+    componentWillMount() {
         let pageParam;
         if (VALID_PAGES.indexOf(this.props.params.project) != -1) {
             pageParam = this.props.params.project;
@@ -19,8 +19,11 @@ class Project extends React.Component {
             pageParam = "invalid";
         }
         
-        let content = require("../assets/projects/" + pageParam);
-        let htmlContent = markdown.toHTML(content.content);
+        this.pageContent = require("../assets/projects/" + pageParam);
+    }
+    
+    getMarkdown() {
+        let htmlContent = markdown.toHTML(this.pageContent.content);
         
         return {__html: htmlContent};
     }
@@ -34,4 +37,4 @@ class Project extends React.Component {
     }
 }
 
-export default Project;
+export default PageHead(Project, Project.pageContent.meta);
