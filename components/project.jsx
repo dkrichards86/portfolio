@@ -37,4 +37,4 @@ class Project extends React.Component {
     }
 }
 
-export default PageHead(Project, Project.pageContent.meta);
+export default Project;
