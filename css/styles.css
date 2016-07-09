@@ -282,10 +282,13 @@ a.home-btn {
         display: block;
         width: 100%;
         height: auto;
+        padding: 0;
+        border-right: none;
     }
     
     nav a {
         display: inline-block;
+        text-transform: uppercase;
     }
     
     main {
