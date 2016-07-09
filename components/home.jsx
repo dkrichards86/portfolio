@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import PageHead from "react-pagehead";
+import { pageHead } from './react-pagehead';
 
 const METATAGS = {
     title: "Keith Richards - Raleigh, NC Web Developer",
@@ -23,8 +23,10 @@ class Home extends React.Component {
                             <p>
                                 I am a professional web developer, an amateur powerlifter, a former Marine, and the consummate bro.
                             </p>
-                            <Link to="/personal" className="home-btn">About Me</Link>
-                            <Link to="/resume" className="home-btn">My Work</Link>
+                            <div className="home-buttons">
+                                <Link to="/personal" className="home-btn">About Me</Link>
+                                <Link to="/resume" className="home-btn">My Work</Link>
+                            </div>
                         </section>
                     </div>
                 </div>
@@ -33,4 +35,4 @@ class Home extends React.Component {
     }
 }
 
-export default PageHead(Home, METATAGS);
+export default pageHead(Home, METATAGS);

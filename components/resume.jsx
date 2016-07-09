@@ -1,6 +1,5 @@
 import React from 'react';
-
-import PageHead from "react-pagehead";
+import { pageHead } from './react-pagehead';
 
 const METATAGS = {
     title: "Keith Richards - Resume",
@@ -82,4 +81,4 @@ class Resume extends React.Component {
     }
 }
 
-export default PageHead(Resume, METATAGS);
+export default pageHead(Resume, METATAGS);

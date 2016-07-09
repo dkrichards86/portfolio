@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import PageHead from "react-pagehead";
+import { pageHead } from './react-pagehead';
 
 const METATAGS = {
     title: "Keith Richards - Projects",
@@ -10,25 +10,41 @@ const METATAGS = {
     }
 };
 
+const PROJECTS = [
+    {
+        link: "/projects/portfolio",
+        title: "My Portfolio",
+        content: "Check out my portfolio"
+    },
+    {
+        link: "/projects/risingbar",
+        title: "Rising Bar App",
+        content: "Learn more about Rising Bar App"
+    },
+    {
+        link: "/projects/reactpagehead",
+        title: "React-PageHead",
+        content: "Available on NPM!"
+    }
+];
+
 class Projects extends React.Component {
+    componentWillMount() {
+        this.projects = PROJECTS.map( (project, i) => {
+            return <Link to={project.link} className="box" key={i}>
+                    <h2>{project.title}</h2>
+                    <p>{project.content}</p>
+                </Link>;
+        });
+    }
+    
     render() {
         return (
             <div className="content">
-                <Link to="/projects/portfolio" className="box half">
-                    <h2>My Portfolio</h2>
-                    <p>Check out my portfolio</p>
-                </Link>
-                <Link to="/projects/risingbar" className="box half">
-                    <h2>Rising Bar App</h2>
-                    <p>Learn more about Rising Bar App</p>
-                </Link>
-                <Link to="/projects/reactpagehead" className="box half">
-                    <h2>React-PageHead</h2>
-                    <p>Available on NPM!</p>
-                </Link>
+                {this.projects}
             </div>
         );
     }
 }
 
-export default PageHead(Projects, METATAGS);
+export default pageHead(Projects, METATAGS);
