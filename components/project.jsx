@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import PageHead from "react-pagehead";
 const markdown = require('markdown').markdown;
 
 const VALID_PAGES = [

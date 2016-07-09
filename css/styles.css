@@ -26,7 +26,6 @@ header {
     height: 72px;
     box-sizing: border-box;
     z-index: 10;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
     background-color: #0288D1;
     line-height: 72px;
     text-align: left;
@@ -85,17 +84,20 @@ aside a img {
 /* Navigation */
 
 nav {
-    width: 100%;
-    height:48px;
+    width: 230px;
+    height: calc(100vh - 72px);
     background: #fafafa;
     line-height: 44px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, .2);
+    position: relative;
+    z-index: 2;
 }
 
 nav a {
-    display: inline-block;
+    display: block;
     width: auto;
     box-sizing: border-box;
     margin: 0 8px;
@@ -117,16 +119,22 @@ nav a:hover {
 
 /* Main Content */
 
+.main {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
 main {
     position: relative;
-    margin-top: 144px;
     background: #f1f1f1;
+    width: calc(100% - 230px);
 }
 
 .box {
     display: block;
-    width: 96%;
-    margin: 0 2% 16px;
+    width: 100%;
+    margin: 0;
     padding: 32px;
     box-sizing: border-box;
     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, .2);
@@ -137,15 +145,14 @@ main {
 
 .half {
     display: inline-block;
-    width: 46%;
+    width: 50%;
 }
 
 .content {
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    max-width: 800px;
+    top: 32px;
+    right: 32px;
+    left: 32px;
     margin: 0 auto;
 }
 
@@ -177,9 +184,9 @@ main {
 
 .component-image {
     position: relative;
-    width: 96%;
-    height:260px;
-    margin: 0 2%;
+    width: 100%;
+    height: 260px;
+    margin: 0;
     padding: 0;
     background-color: #191919;
     background-image: url(../images/consummatebro.png);
@@ -267,6 +274,26 @@ main {
     opacity: 0;
 }
 
+@media (max-width: 1000px) {
+    .main {
+        display: block;
+    }
+    
+    nav {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+    nav a {
+        display: inline-block;
+    }
+    
+    main {
+        width: 100%;
+    }
+}
+
 @media (max-width: 800px) {
     .component-image {
         height: 200px;
@@ -274,10 +301,6 @@ main {
     
     nav a {
         font-size: 18px;
-    }
-    
-    main {
-        margin-top: 132px;
     }
 }
 
@@ -302,10 +325,10 @@ main {
     
     aside .social-links {
         display: none;
-        background: rgba(0, 0, 0, .4);
+        background: rgba(0, 0, 0, .6);
         box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
         position: relative;
-        z-index: 2;
+        z-index: 20;
         text-align: center;
         padding: 8px 4px;
         border-radius: 16px;
@@ -313,7 +336,13 @@ main {
     
     .half {
         display: block;
-        width: 96%;
+        width: 100%;
+    }
+    
+    .content {
+        top: 16px;
+        right: 16px;
+        left: 16px;
     }
     
     .content h1 {
@@ -357,6 +386,12 @@ main {
     
     .blurb {
         font-size: 19px;
+    }
+    
+    .content {
+        top: 8px;
+        right: 8px;
+        left: 8px;
     }
     
     .content h1 {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import PageHead from "react-pagehead";
 
 const METATAGS = {
     title: "Keith Richards - Raleigh, NC Web Developer",
@@ -33,4 +32,4 @@ class Home extends React.Component {
     }
 }
 
-export default PageHead(Home, METATAGS);
+export default Home;
