@@ -86,14 +86,16 @@ aside a img {
 nav {
     width: 230px;
     height: calc(100vh - 72px);
+    padding: 16px 0;
     background: #fafafa;
     line-height: 44px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, .2);
+    border: 1px solid #ccc;
     position: relative;
     z-index: 2;
+    box-sizing: border-box;
 }
 
 nav a {
@@ -103,19 +105,11 @@ nav a {
     margin: 0 8px;
     padding: 0 12px;
     color: #555;
-    font-size: 21px;
-    font-weight: 300;
-    text-transform: uppercase;
+    font-size: 18px;
     text-decoration: none;
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
 }
-
-nav a.active,
-nav a:hover {
-    box-shadow: 0 3px 0 #d14b02;
-}
-
 
 /* Main Content */
 
@@ -134,7 +128,7 @@ main {
 .box {
     display: block;
     width: 100%;
-    margin: 0;
+    margin: 0 0 16px;
     padding: 32px;
     box-sizing: border-box;
     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, .2);
@@ -230,10 +224,15 @@ main {
     border-bottom: 1px solid #d5d5d5;
 }
 
-.home-btn {
+.home-buttons {
+    text-align: right;
+}
+
+a.home-btn {
     display: inline-block;
     margin: 16px 32px;
-    font-size: 24px;
+    color: #0288D1;
+    font-size: 18px;
     text-transform: uppercase;
     text-decoration: none;
 }
@@ -252,12 +251,12 @@ main {
     transition-duration: .4s;
     transition-property: transform, opacity;
     transition-timing-function: ease-out;
-    transform: translate3d(0, -100%, 0);
+    opacity: 0;
     z-index: 10;
 }
 
 .slide-enter.slide-enter-active {
-    transform: translate3d(0, 0, 0);
+    opacity: 1;
 }
 
 .slide-leave {
@@ -265,12 +264,10 @@ main {
     transition-duration: .4s;
     transition-property: transform, opacity;
     transition-timing-function: ease-out;
-    transform: translate3d(0, 0, 0);
     opacity: 1;
 }
 
 .slide-leave.slide-leave-active {
-    transform: translate3d(0, -100%, 0);
     opacity: 0;
 }
 

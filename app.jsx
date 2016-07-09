@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IndexRoute, Route, Router, browserHistory, useRouterHistory } from 'react-router';
+import { IndexRoute, Route, Router, browserHistory } from 'react-router';
 
 import Header from './components/header';
 import Home from './components/home';
