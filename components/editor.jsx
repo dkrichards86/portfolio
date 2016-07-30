@@ -5,6 +5,15 @@ import TextArea from './textarea';
 const fetch = require('whatwg-fetch');
 
 export default class Editor extends React.Component {
+    handleChange(key, value) {
+        let stateObj = {};
+        
+        stateObj[key] = value;
+        
+        this.setState(stateObj);
+    
+    }
+    
     submitPost() {
         if (
             this.state.postkey && this.state.posttitle && this.state.postheader &&
@@ -27,11 +36,11 @@ export default class Editor extends React.Component {
     render() {
         return (
             <div>
-               <Input name="postkey" />
-               <Input name="posttitle" />
-               <Input name="postheader" />
-               <Input name="postsubheader" />
-               <TextArea name="postbody" />
+               <Input name="postkey" label="Auth Key" eventHandler={this.handleChange.bind(this, "postkey")}/>
+               <Input name="posttitle" label="Title" eventHandler={this.handleChange.bind(this, "posttitle")}/>
+               <Input name="postheader" label="Header" eventHandler={this.handleChange.bind(this, "postheader")}/>
+               <Input name="postsubheader" label="Subheader" eventHandler={this.handleChange.bind(this, "postsubheader")}/>
+               <TextArea name="postbody" label="Post Body" eventHandler={this.handleChange.bind(this, "postbody")}/>
                <button onClick={this.submitPost.bind(this)}>Submit</button>
             </div>);
     }
