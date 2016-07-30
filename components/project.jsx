@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 const markdown = require('markdown').markdown;
 
+import 'whatwg-fetch';
+
 const VALID_PAGES = [
     "portfolio",
     "reactpagehead",
@@ -10,6 +12,19 @@ const VALID_PAGES = [
 
 class Project extends React.Component {
     componentWillMount() {
+        let path = `api/${this.props.params.project}`;
+        let projectData;
+        
+        fetch(path)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(json) {
+            console.log(json);
+            projectData = JSON.parse(json);
+        });
+        
+        /*
         let pageParam;
         if (VALID_PAGES.indexOf(this.props.params.project) != -1) {
             pageParam = this.props.params.project;
@@ -19,6 +34,7 @@ class Project extends React.Component {
         }
         
         this.pageContent = require("../assets/projects/" + pageParam);
+        */
     }
     
     getMarkdown() {
