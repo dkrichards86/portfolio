@@ -23,9 +23,11 @@ app.get('/api',function(req, res) {
 app.get('/api/:title', function(req, res) {
   console.log("GET: /api/" + req.params.title);
   db.collection('projects').findOne({"title": req.params.title}, function(err, results) {
-    if (err) console.log(err);
-    if (!results) res.json({"title": "Post not found", "body": "That post could not be found."});
-
-    res.json(results);
+    if (results) {
+      res.json(results);
+    }
+    else {
+      res.json({"title": "Post not found", "body": "That post could not be found."});
+    }
   });
 });
