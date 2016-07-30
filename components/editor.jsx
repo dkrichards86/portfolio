@@ -2,7 +2,7 @@ import React from 'react';
 import Input from './input';
 import TextArea from './textarea';
 
-const fetch = require('whatwg-fetch');
+import 'whatwg-fetch';
 
 export default class Editor extends React.Component {
     handleChange(key, value) {
@@ -18,9 +18,12 @@ export default class Editor extends React.Component {
         if (
             this.state.postkey && this.state.posttitle && this.state.postheader &&
             this.state.postsubheader && this.state.postbody
-        ) { 
-           
-            fetch('/api/post', {
+        ) {
+	    fetch('/api/post', {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
                 method: 'POST',
                 body: JSON.stringify({
                 	key: this.state.postkey,

@@ -45,5 +45,10 @@ app.get('/api/:title', function(req, res) {
 
 app.post('/api/post', function(req, res) {
   console.log("POST: /api/post");
-  console.log(req.body);
+  db.collection('projects').insert({
+    "title": req.body.title,
+    "header": req.body.header,
+    "subheader": req.body.subheader,
+    "body": req.body.body
+   });
 });
