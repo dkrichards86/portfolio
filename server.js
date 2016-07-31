@@ -52,14 +52,16 @@ app.post('/api/post', function(req, res) {
     console.log("POST: /api/post");
 
     if (req.body.key != config.authKey) {
-        console.log("key doesn't match");
+        return false;
     }
 
     var dbOp = db.collection('projects').insert({
-        "title": req.body.title,
+        "title": req.body.title,        
         "header": req.body.header,
         "subheader": req.body.subheader,
-        "body": req.body.body
+        "body": req.body.body,
+        "metatitle": req.body.metatitle,
+        "metadesc": req.body.metadesc
     });
 
     if (dbOp) return true;
@@ -68,23 +70,21 @@ app.post('/api/post', function(req, res) {
 
 app.get('/api/edit/:title', function(req, res) {
     console.log("GET: /api/edit/" + req.params.title);
-    db.collection('projects').findOne({
-        "title": req.params.title
-    }, function(err, results) {
-        if (err) {
-            console.log(err);
-        }
+    
+    db.collection('projects').findOne(
+        {
+            "title": req.params.title
+        },
+        function(err, results) {
+            if (err) {
+                console.log(err);
+            }
 
-        if (results) {
-            res.json(results);
+            if (results) {
+                res.json(results);
+            }
         }
-        else {
-            res.json({
-                "title": "Post not found",
-                "body": "That post could not be found."
-            });
-        }
-    });
+    );
 });
 
 app.post('/api/edit/:title', function(req, res) {
@@ -102,14 +102,16 @@ app.post('/api/edit/:title', function(req, res) {
             "title": req.body.title,        
             "header": req.body.header,
             "subheader": req.body.subheader,
-            "body": req.body.body
+            "body": req.body.body,
+            "metatitle": req.body.metatitle,
+            "metadesc": req.body.metadesc
         }
     );
 
     if (dbOp) {
-	return true;
+	    return true;
     }
     else {
-	return false;
+    	return false;
     }
 });

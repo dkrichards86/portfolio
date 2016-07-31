@@ -14,7 +14,9 @@ export default class Editor extends React.Component {
             posttitle: "",
             postheader: "",
             postsubheader: "",
-            postbody: ""
+            postbody: "",
+            postmetatitle: "",
+            postmetadesc: ""
         };
 
         if (this.isEdit) {
@@ -35,7 +37,9 @@ export default class Editor extends React.Component {
             this.setState({
                 postheader: json.header,
                 postsubheader: json.subheader,
-                postbody: json.body
+                postbody: json.body,
+                postmetatitle: json.metatitle,
+                postmetadesc: json.metadesc
             });
         });
     }
@@ -50,17 +54,14 @@ export default class Editor extends React.Component {
     }
     
     submitPost() {
-        if (
-            this.state.postkey && this.state.posttitle && this.state.postheader &&
-            this.state.postsubheader && this.state.postbody
-        ) {
+        if (this.state.postkey && this.state.posttitle) {
 
-		let path = '../api/post';
-
-		if (this.isEdit) {
-		    path = `../api/edit/${this.isEdit}`;
-		}            
-
+    		let path = '../api/post';
+    
+    		if (this.isEdit) {
+    		    path = `../api/edit/${this.isEdit}`;
+    		}            
+	    
 	        fetch(path, {
                 headers: {
                     'Accept': 'application/json',
@@ -73,6 +74,8 @@ export default class Editor extends React.Component {
                     header: this.state.postheader,
                     subheader: this.state.postsubheader,
                     body: this.state.postbody,
+                    metatitle: this.state.postmetatitle,
+                    metadesc: this.state.postmetadesc
             	})
             });
         }
@@ -81,12 +84,18 @@ export default class Editor extends React.Component {
     render() {
         return (
             <div className="content">
-               <div className="box">
-                  <Input name="postkey" label="Auth Key" inputType="password" value="password" eventHandler={this.handleChange.bind(this, "postkey")}/>
-                  <Input name="posttitle" label="Title" value={this.state.posttitle} eventHandler={this.handleChange.bind(this, "posttitle")}/>
-                  <Input name="postheader" label="Header" value={this.state.postheader} eventHandler={this.handleChange.bind(this, "postheader")}/>
-                  <Input name="postsubheader" label="Subheader" value={this.state.postsubheader} eventHandler={this.handleChange.bind(this, "postsubheader")}/>
-                  <TextArea name="postbody" label="Post Body" value={this.state.postbody} eventHandler={this.handleChange.bind(this, "postbody")}/>
+                <div className="box">
+                    <h2>Page Slug</h2>
+                    <Input name="posttitle" label="Post Slug" value={this.state.posttitle} eventHandler={this.handleChange.bind(this, "posttitle")} />
+                    <h2>Post Content</h2>
+                    <Input name="postheader" label="Header" value={this.state.postheader} eventHandler={this.handleChange.bind(this, "postheader")}/>
+                    <Input name="postsubheader" label="Subheader" value={this.state.postsubheader} eventHandler={this.handleChange.bind(this, "postsubheader")}/>
+                    <TextArea name="postbody" label="Post Body" value={this.state.postbody} eventHandler={this.handleChange.bind(this, "postbody")}/>
+                    <h2>Post Metadata</h2>
+                    <Input name="postmetatitle" label="Meta Title" value={this.state.postmetatitle} eventHandler={this.handleChange.bind(this, "postmetatitle")}/>
+                    <TextArea name="postmetadesc" label="Meta Description" value={this.state.postmetadesc} eventHandler={this.handleChange.bind(this, "postmetadesc")}/>
+                    <h2>Authentication</h2>
+                    <Input name="postkey" label="Auth Key" inputType="password" value="password" eventHandler={this.handleChange.bind(this, "postkey")}/>
                   <button onClick={this.submitPost.bind(this)}>Submit</button>
                </div>
             </div>);
