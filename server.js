@@ -105,7 +105,7 @@ app.post('/api/edit/:title', function(req, res) {
             "body": req.body.body
         }
     );
-    console.log("post op - haha");
+
     if (dbOp) {
 	return true;
     }

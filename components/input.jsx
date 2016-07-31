@@ -41,12 +41,12 @@ export default class Input extends React.Component {
     render() {
         let inputType = this.props.inputType || "text";
         var labelClass = "";
-        if (this.state.focus) {
+        if (this.state.focus || this.state.textValue) {
             labelClass = "focused";
         }
 
         return (
-            <div className="editor-block"
+            <div className="editor-block editor-input"
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}>
                 <label className={labelClass}>

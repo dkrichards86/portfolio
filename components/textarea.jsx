@@ -15,9 +15,8 @@ export default class TextArea extends React.Component {
     /**
      * Set the initial state of the combobox
      */
-    componentWillMount(){
-        this.resizeBox();
-        this.setState({textValue: this.props.value});
+    componentDidMount() {
+        this.setState({textValue: this.props.value}, this.resizeBox());
     }
 
     /**
@@ -25,8 +24,7 @@ export default class TextArea extends React.Component {
      * @param props
      */
     componentWillReceiveProps(props) {
-        this.resizeBox();
-        this.setState({textValue: props.value});
+        this.setState({textValue: props.value}, this.resizeBox());
     }
 
     /**
@@ -61,7 +59,7 @@ export default class TextArea extends React.Component {
      */
     render() {
         return (
-            <div className="editor-block"
+            <div className="editor-block editor-textarea"
                  onBlur={this.handleBlur}
                  tabIndex="-1" >
                 <label>
