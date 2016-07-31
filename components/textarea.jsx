@@ -2,7 +2,8 @@ import React from 'react';
 
 export default class TextArea extends React.Component {
     constructor(props) {
-        super(props);
+        super();
+        
         this.state = {
             textValue: ""
         };
@@ -15,6 +16,7 @@ export default class TextArea extends React.Component {
      * Set the initial state of the combobox
      */
     componentWillMount(){
+        this.resizeBox();
         this.setState({textValue: this.props.value});
     }
 
@@ -23,6 +25,7 @@ export default class TextArea extends React.Component {
      * @param props
      */
     componentWillReceiveProps(props) {
+        this.resizeBox();
         this.setState({textValue: props.value});
     }
 
@@ -58,7 +61,8 @@ export default class TextArea extends React.Component {
      */
     render() {
         return (
-            <div onBlur={this.handleBlur}
+            <div className="editor-block"
+                 onBlur={this.handleBlur}
                  tabIndex="-1" >
                 <label>
                     {this.props.label}

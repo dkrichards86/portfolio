@@ -46,7 +46,7 @@ export default class Input extends React.Component {
         }
 
         return (
-            <div className={this.props.className}
+            <div className="editor-block"
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}>
                 <label className={labelClass}>
