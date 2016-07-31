@@ -85,16 +85,12 @@ export default class Editor extends React.Component {
         return (
             <div className="content">
                 <div className="box">
-                    <h2>Page Slug</h2>
                     <Input name="posttitle" label="Post Slug" value={this.state.posttitle} eventHandler={this.handleChange.bind(this, "posttitle")} />
-                    <h2>Post Content</h2>
+                    <Input name="postmetatitle" label="Meta Title" value={this.state.postmetatitle} eventHandler={this.handleChange.bind(this, "postmetatitle")}/>
+                    <Input name="postmetadesc" label="Meta Description" value={this.state.postmetadesc} eventHandler={this.handleChange.bind(this, "postmetadesc")}/>
                     <Input name="postheader" label="Header" value={this.state.postheader} eventHandler={this.handleChange.bind(this, "postheader")}/>
                     <Input name="postsubheader" label="Subheader" value={this.state.postsubheader} eventHandler={this.handleChange.bind(this, "postsubheader")}/>
                     <TextArea name="postbody" label="Post Body" value={this.state.postbody} eventHandler={this.handleChange.bind(this, "postbody")}/>
-                    <h2>Post Metadata</h2>
-                    <Input name="postmetatitle" label="Meta Title" value={this.state.postmetatitle} eventHandler={this.handleChange.bind(this, "postmetatitle")}/>
-                    <TextArea name="postmetadesc" label="Meta Description" value={this.state.postmetadesc} eventHandler={this.handleChange.bind(this, "postmetadesc")}/>
-                    <h2>Authentication</h2>
                     <Input name="postkey" label="Auth Key" inputType="password" value="password" eventHandler={this.handleChange.bind(this, "postkey")}/>
                   <button onClick={this.submitPost.bind(this)}>Submit</button>
                </div>
