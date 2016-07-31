@@ -11,42 +11,52 @@ const VALID_PAGES = [
 ];
 
 class Project extends React.Component {
-    componentWillMount() {
-        let path = `api/${this.props.params.project}`;
-        let projectData;
+    constructor() {
+        super();
+
+        this.state = {
+            content: {body: "Loading"}
+        };
+    }
+
+    componentDidMount() {
+        let path = `../api/${this.props.params.project}`;
         
         fetch(path)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(json) {
+        .then( response => response.json() )
+        .then( json => {
             console.log(json);
-            projectData = JSON.parse(json);
+            this.setState({
+                content: json
+            });
         });
-        
-        /*
-        let pageParam;
-        if (VALID_PAGES.indexOf(this.props.params.project) != -1) {
-            pageParam = this.props.params.project;
-        }
-        else {
-            pageParam = "invalid";
-        }
-        
-        this.pageContent = require("../assets/projects/" + pageParam);
-        */
     }
     
-    getMarkdown() {
-        let htmlContent = markdown.toHTML(this.pageContent.content);
-        
+    getMarkdown(markdownContent) {
+        let htmlContent = markdown.toHTML(markdownContent).replace(/^<p>/, "").replace(/<\/p>$/, "");
+
         return {__html: htmlContent};
     }
     
     render() {
+	let h1;
+        let h2;
+
+        if (this.state.content.header) {
+            h1 = <h1 dangerouslySetInnerHTML={this.getMarkdown(this.state.content.header)} />;
+        }
+
+        if (this.state.content.subheader) {
+            h2 = <h2 dangerouslySetInnerHTML={this.getMarkdown(this.state.content.subheader)} />;
+        }
+
         return (
             <div className="content">
-                <div className="box" dangerouslySetInnerHTML={this.getMarkdown()} />
+                <article className="box">
+                    {h1}
+                    {h2}
+                    <p dangerouslySetInnerHTML={this.getMarkdown(this.state.content.body)} />
+                </article>
             </div>
         );
     }
