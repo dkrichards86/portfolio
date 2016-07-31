@@ -52,7 +52,7 @@ app.post('/api/post', function(req, res) {
     console.log("POST: /api/post");
 
     if (req.body.key != config.authKey) {
-        return false
+        console.log("key doesn't match");
     }
 
     var dbOp = db.collection('projects').insert({
@@ -91,17 +91,25 @@ app.post('/api/edit/:title', function(req, res) {
     console.log("POST: /api/edit/" + req.params.title);
 
     if (req.body.key != config.authKey) {
-        return false
+        return false;
     }
-    /*
-    var dbOp = db.collection('projects').insert({
-        "title": req.body.title,
-        "header": req.body.header,
-        "subheader": req.body.subheader,
-        "body": req.body.body
-    });
 
-    if (dbOp) return true;
-    else return false;
-    */
+    var dbOp = db.collection('projects').update(
+        {
+            "title": req.body.title,        
+        },
+        {
+            "title": req.body.title,        
+            "header": req.body.header,
+            "subheader": req.body.subheader,
+            "body": req.body.body
+        }
+    );
+    console.log("post op - haha");
+    if (dbOp) {
+	return true;
+    }
+    else {
+	return false;
+    }
 });

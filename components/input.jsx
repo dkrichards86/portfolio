@@ -39,6 +39,7 @@ export default class Input extends React.Component {
     }
 
     render() {
+        let inputType = this.props.inputType || "text";
         var labelClass = "";
         if (this.state.focus) {
             labelClass = "focused";
@@ -51,7 +52,7 @@ export default class Input extends React.Component {
                 <label className={labelClass}>
                     {this.props.label}
                 </label>
-                <input name={this.props.name} onChange={this.handleChange} defaultValue={this.props.value} />
+                <input name={this.props.name} onChange={this.handleChange} value={this.state.textValue} type={inputType} />
             </div>);
     }
 }
