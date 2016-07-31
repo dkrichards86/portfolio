@@ -5,6 +5,25 @@ import TextArea from './textarea';
 import 'whatwg-fetch';
 
 export default class Editor extends React.Component {
+    componentWillMount() {
+        this.getPost();
+    }
+    
+    getPost() {
+        let path = `../api/edit/${this.props.params.title}`;
+        
+        fetch(path)
+        .then( response => response.json() )
+        .then( json => {
+            this.setState({
+            	posttitle: json.title,
+                postheader: json.header,
+                postsubheader: json.subheader,
+                postbody: json.body
+            });
+        });
+    }
+    
     handleChange(key, value) {
         let stateObj = {};
         
@@ -19,7 +38,7 @@ export default class Editor extends React.Component {
             this.state.postkey && this.state.posttitle && this.state.postheader &&
             this.state.postsubheader && this.state.postbody
         ) {
-	    fetch('/api/post', {
+	        fetch('/api/post', {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -40,10 +59,10 @@ export default class Editor extends React.Component {
         return (
             <div>
                <Input name="postkey" label="Auth Key" eventHandler={this.handleChange.bind(this, "postkey")}/>
-               <Input name="posttitle" label="Title" eventHandler={this.handleChange.bind(this, "posttitle")}/>
-               <Input name="postheader" label="Header" eventHandler={this.handleChange.bind(this, "postheader")}/>
-               <Input name="postsubheader" label="Subheader" eventHandler={this.handleChange.bind(this, "postsubheader")}/>
-               <TextArea name="postbody" label="Post Body" eventHandler={this.handleChange.bind(this, "postbody")}/>
+               <Input name="posttitle" label="Title" value={this.state.posttitle} eventHandler={this.handleChange.bind(this, "posttitle")}/>
+               <Input name="postheader" label="Header" value={this.state.postheader} eventHandler={this.handleChange.bind(this, "postheader")}/>
+               <Input name="postsubheader" label="Subheader" value={this.state.postsubheader} eventHandler={this.handleChange.bind(this, "postsubheader")}/>
+               <TextArea name="postbody" label="Post Body" value={this.state.postbody} eventHandler={this.handleChange.bind(this, "postbody")}/>
                <button onClick={this.submitPost.bind(this)}>Submit</button>
             </div>);
     }

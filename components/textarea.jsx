@@ -63,7 +63,7 @@ export default class TextArea extends React.Component {
                 <label>
                     {this.props.label}
                 </label>
-                <textarea onChange={this.handleChange} value={this.state.textValue} ref="textbox" />
+                <textarea onChange={this.handleChange} value={this.state.textValue} ref="textbox">{this.props.value}</textarea>
             </div>
         );
     }

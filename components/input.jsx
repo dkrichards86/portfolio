@@ -49,9 +49,9 @@ export default class Input extends React.Component {
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}>
                 <label className={labelClass}>
-                    {this.props.placeholder}
+                    {this.props.label}
                 </label>
-                <input name={this.props.name} onChange={this.handleChange} />
+                <input name={this.props.name} onChange={this.handleChange} defaultValue={this.props.value} />
             </div>);
     }
 }

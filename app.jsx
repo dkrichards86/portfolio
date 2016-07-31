@@ -18,6 +18,7 @@ ReactDOM.render(
         <Route path="/" component={Main}>
             <IndexRoute component={Home}/>
             <Route path="editor" component={Editor} />
+            <Route path="editor/:title" component={Editor} />
             <Route path="personal" component={Personal} />
             <Route path="professional" component={Professional} />
             <Route path="projects" component={ProjectLanding} />
