@@ -42,7 +42,7 @@ export default class Editor extends React.Component {
         .then( response => response.json() )
         .then( json => {
             this.setState({
-                posttype: json.type,
+                posttitle: this.props.params.title,
                 postheader: json.header,
                 postsubheader: json.subheader,
                 postbody: json.body,
@@ -64,7 +64,7 @@ export default class Editor extends React.Component {
     submitPost() {
         if (this.state.postkey && this.state.posttitle) {
 
-    		let path = '../api/${this.state.posttype}';
+    		let path = `../api/${this.state.posttype}/`;
 	    
 	        fetch(path, {
                 headers: {

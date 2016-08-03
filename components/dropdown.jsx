@@ -71,7 +71,7 @@ export class Dropdown extends React.Component {
     }
 
     let dropdown = this.props.options.map( (item, i) => {
-      return <DropdownItem label={item.label} value={item.value} click={this.handleClick.bind(this, item.value)} />;
+      return <DropdownItem label={item.label} value={item.value} click={this.handleClick.bind(this, item.value)} key={i} />;
     });
 
     return (
