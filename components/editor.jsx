@@ -42,7 +42,9 @@ export default class Editor extends React.Component {
         .then( response => response.json() )
         .then( json => {
             this.setState({
-                posttitle: this.props.params.title,
+                postslug: this.props.params.title,
+                posttitle: json.title,
+                posttagline: json.tagline,
                 postheader: json.header,
                 postsubheader: json.subheader,
                 postbody: json.body,
@@ -75,7 +77,9 @@ export default class Editor extends React.Component {
                 body: JSON.stringify({
                 	key: this.state.postkey,
                 	type: this.state.posttype,
+                	slug: this.state.postslug,
                 	title: this.state.posttitle,
+                	tagline: this.state.posttagline,
                     header: this.state.postheader,
                     subheader: this.state.postsubheader,
                     body: this.state.postbody,
@@ -102,7 +106,9 @@ export default class Editor extends React.Component {
             <div className="content">
                 <div className="box">
                     <Dropdown label="Type" options={dropdownChoices} value={this.state.posttype} eventHandler={this.handleChange.bind(this, "posttype")}/>
-                    <Input name="posttitle" label="Post Slug" value={this.state.posttitle} eventHandler={this.handleChange.bind(this, "posttitle")} />
+                    <Input name="posttitle" label="URL Slug" value={this.state.posttitle} eventHandler={this.handleChange.bind(this, "postslug")} />
+                    <Input name="posttitle" label="Post Title" value={this.state.posttitle} eventHandler={this.handleChange.bind(this, "posttitle")} />
+                    <Input name="posttagline" label="Post Tagline" value={this.state.posttitle} eventHandler={this.handleChange.bind(this, "posttagline")} />
                     <Input name="postmetatitle" label="Meta Title" value={this.state.postmetatitle} eventHandler={this.handleChange.bind(this, "postmetatitle")}/>
                     <Input name="postmetadesc" label="Meta Description" value={this.state.postmetadesc} eventHandler={this.handleChange.bind(this, "postmetadesc")}/>
                     <Input name="postheader" label="Header" value={this.state.postheader} eventHandler={this.handleChange.bind(this, "postheader")}/>
