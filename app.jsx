@@ -17,12 +17,14 @@ ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={Main}>
             <IndexRoute component={Home}/>
-            <Route path="editor" component={Editor} />
-            <Route path="editor/:title" component={Editor} />
+            <Route path="newproject" component={Editor} />
+            <Route path="newpost" component={Editor} />
             <Route path="personal" component={Personal} />
             <Route path="professional" component={Professional} />
+            <Route path="editpost/:title" component={Editor} />
+            <Route path="editproject/:title" component={Editor} />
             <Route path="projects" component={ProjectLanding} />
-            <Route path="projects/:project" component={Project} />
+            <Route path="projects/:title" component={Project} />
             <Route path="resume" component={Resume} />
         </Route>
         <Route path="*" component={Invalid}/>

@@ -20,7 +20,7 @@ class Project extends React.Component {
     }
 
     componentDidMount() {
-        let path = `../api/${this.props.params.project}`;
+        let path = `../api/project/${this.props.params.title}`;
         
         fetch(path)
         .then( response => response.json() )

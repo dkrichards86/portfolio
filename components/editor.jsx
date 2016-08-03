@@ -1,4 +1,5 @@
 import React from 'react';
+import { Dropdown, DropdownItem } from './dropdown';
 import Input from './input';
 import TextArea from './textarea';
 
@@ -6,10 +7,6 @@ import 'whatwg-fetch';
 
 export default class Editor extends React.Component {
     componentWillMount() {
-	if (this.props.params.title) {
-            this.isEdit = this.props.params.title;
-        }
-
         let stateObj = {
             posttitle: "",
             postheader: "",
@@ -18,23 +15,34 @@ export default class Editor extends React.Component {
             postmetatitle: "",
             postmetadesc: ""
         };
-
-        if (this.isEdit) {
-	    stateObj['posttitle'] = this.isEdit;
-	}        
+        
+        if (this.props.location.pathname.indexOf("editpost") != -1) {
+            stateObj["posttype"] = "post";
+            this.isEdit = "post";
+        }
+        else if (this.props.location.pathname.indexOf("editproject") != -1) {
+            stateObj["posttype"] = "project";
+            this.isEdit = "project";
+        }
+        else {
+            stateObj["posttype"] = "post";
+        }
 
         this.setState(stateObj);            
 
-        this.getPost();
+        if (this.isEdit && this.props.params.title) {
+            this.getPost();
+        }
     }
     
     getPost() {
-        let path = `../api/edit/${this.props.params.title}`;
+        let path = `../api/${this.isEdit}/${this.props.params.title}`;
         
         fetch(path)
         .then( response => response.json() )
         .then( json => {
             this.setState({
+                posttype: json.type,
                 postheader: json.header,
                 postsubheader: json.subheader,
                 postbody: json.body,
@@ -56,11 +64,7 @@ export default class Editor extends React.Component {
     submitPost() {
         if (this.state.postkey && this.state.posttitle) {
 
-    		let path = '../api/post';
-    
-    		if (this.isEdit) {
-    		    path = `../api/edit/${this.isEdit}`;
-    		}            
+    		let path = '../api/${this.state.posttype}';
 	    
 	        fetch(path, {
                 headers: {
@@ -70,6 +74,7 @@ export default class Editor extends React.Component {
                 method: 'POST',
                 body: JSON.stringify({
                 	key: this.state.postkey,
+                	type: this.state.posttype,
                 	title: this.state.posttitle,
                     header: this.state.postheader,
                     subheader: this.state.postsubheader,
@@ -82,9 +87,21 @@ export default class Editor extends React.Component {
     }
     
     render() {
+        let dropdownChoices = [
+            {
+                label: "Post",
+                value: "post"
+            },
+            {
+                label: "Project",
+                value: "project"
+            }
+        ];
+        
         return (
             <div className="content">
                 <div className="box">
+                    <Dropdown label="Type" options={dropdownChoices} value={this.state.posttype} eventHandler={this.handleChange.bind(this, "posttype")}/>
                     <Input name="posttitle" label="Post Slug" value={this.state.posttitle} eventHandler={this.handleChange.bind(this, "posttitle")} />
                     <Input name="postmetatitle" label="Meta Title" value={this.state.postmetatitle} eventHandler={this.handleChange.bind(this, "postmetatitle")}/>
                     <Input name="postmetadesc" label="Meta Description" value={this.state.postmetadesc} eventHandler={this.handleChange.bind(this, "postmetadesc")}/>
