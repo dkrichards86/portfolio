@@ -1,7 +1,6 @@
 import React from 'react';
 import { Dropdown, DropdownItem } from './dropdown';
-import Input from './input';
-import TextArea from './textarea';
+import Input from './input';import TextArea from './textarea';
 
 import 'whatwg-fetch';
 
@@ -69,24 +68,25 @@ export default class Editor extends React.Component {
     		let path = `../api/${this.state.posttype}/`;
 	    
 	        fetch(path, {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                method: 'POST',
-                body: JSON.stringify({
-                	key: this.state.postkey,
-                	type: this.state.posttype,
-                	slug: this.state.postslug,
-                	title: this.state.posttitle,
-                	tagline: this.state.posttagline,
-                    header: this.state.postheader,
-                    subheader: this.state.postsubheader,
-                    body: this.state.postbody,
-                    metatitle: this.state.postmetatitle,
-                    metadesc: this.state.postmetadesc
-            	})
-            });
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    method: 'POST',
+                    body: JSON.stringify({
+                        key: this.state.postkey,
+                        type: this.state.posttype,
+                        slug: this.state.postslug,
+                        title: this.state.posttitle,
+                        tagline: this.state.posttagline,
+                        header: this.state.postheader,
+                        subheader: this.state.postsubheader,
+                        body: this.state.postbody,
+                        metatitle: this.state.postmetatitle,
+                        metadesc: this.state.postmetadesc
+            	    })
+                })
+                .then( response => this.setState({response: response}));
         }
     }
     
@@ -106,9 +106,9 @@ export default class Editor extends React.Component {
             <div className="content">
                 <div className="box">
                     <Dropdown label="Type" options={dropdownChoices} value={this.state.posttype} eventHandler={this.handleChange.bind(this, "posttype")}/>
-                    <Input name="posttitle" label="URL Slug" value={this.state.posttitle} eventHandler={this.handleChange.bind(this, "postslug")} />
+                    <Input name="postslug" label="URL Slug" value={this.state.postslug} eventHandler={this.handleChange.bind(this, "postslug")} />
                     <Input name="posttitle" label="Post Title" value={this.state.posttitle} eventHandler={this.handleChange.bind(this, "posttitle")} />
-                    <Input name="posttagline" label="Post Tagline" value={this.state.posttitle} eventHandler={this.handleChange.bind(this, "posttagline")} />
+                    <Input name="posttagline" label="Post Tagline" value={this.state.posttagline} eventHandler={this.handleChange.bind(this, "posttagline")} />
                     <Input name="postmetatitle" label="Meta Title" value={this.state.postmetatitle} eventHandler={this.handleChange.bind(this, "postmetatitle")}/>
                     <Input name="postmetadesc" label="Meta Description" value={this.state.postmetadesc} eventHandler={this.handleChange.bind(this, "postmetadesc")}/>
                     <Input name="postheader" label="Header" value={this.state.postheader} eventHandler={this.handleChange.bind(this, "postheader")}/>

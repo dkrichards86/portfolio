@@ -31,15 +31,16 @@ app.get('/api', function(req, res) {
 app.post('/api/post', postEntry("post"));
 app.get('/api/post/:title', getEntry("post"));
 
-app.post('/api/post', postEntry("project"));
+app.post('/api/project', postEntry("project"));
 app.get('/api/project/:title', getEntry("project"));
+app.get('/api/projectlist', getEntryList("project"));
 
 //Higher Order Functions for routing
 function getEntry(entryType) { 
     return function(req, res) {
-        console.log("GET: /api/" + req.params.title);
+        console.log("GET: /api/" + entryType + "/" + req.params.title);
         db.collection('posts').findOne({
-            "title": req.params.title,
+            "slug": req.params.title,
             "type": entryType
         }, function(err, results) {
             if (err) {
@@ -61,16 +62,16 @@ function getEntry(entryType) {
 
 function postEntry(entryType) {
     return function(req, res) {
-        console.log("POST: /api/post");
+        console.log("POST: /api/" + entryType);
     
         if (req.body.key != config.authKey) {
             return false;
         }
     
-         var dbOp = db.collection('posts').update(
+        var dbOp = db.collection('posts').update(
             {
-                "title": req.body.title,
-                "type": "post",
+                "slug": req.body.slug,
+                "type": entryType,
             },
             {
                 "type": req.body.type,
@@ -96,23 +97,24 @@ function postEntry(entryType) {
 
 function getEntryList(entryType) { 
     return function(req, res) {
-        console.log("GET: /api/" + req.params.title);
-        var postList = db.collection('posts').find(
+        console.log("GET: /api/" + entryType + "list");
+        var cursor = db.collection('posts').find(
             {
-                "slug": req.params.slug,
                 "type": entryType
-            }, 
+            },
             {
                 "title": 1,
                 "tagline": 1
             }
         );
-        
-        if (postList && postList.length > 0) {
-            res.json(postList);
-        }
-        else {
-            return false;
-        }
+
+	var postList = cursor.map(function(doc) {
+            if (doc !== null) {
+                return doc;
+            }
+        });
+
+        //res.json(postList);
     }
 }
+
