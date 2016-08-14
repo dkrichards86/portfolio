@@ -32,7 +32,7 @@ class Post extends React.Component {
     }
     
     render() {
-	let h1;
+    	let h1;
         let h2;
 
         if (this.state.content.header) {
@@ -46,8 +46,6 @@ class Post extends React.Component {
         return (
             <div className="content">
                 <article className="box">
-                    {h1}
-                    {h2}
                     <p dangerouslySetInnerHTML={this.getMarkdown(this.state.content.body)} />
                 </article>
             </div>

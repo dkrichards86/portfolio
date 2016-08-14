@@ -32,7 +32,7 @@ class Project extends React.Component {
     }
     
     render() {
-	let h1;
+	    let h1;
         let h2;
 
         if (this.state.content.header) {

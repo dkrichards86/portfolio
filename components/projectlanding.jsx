@@ -26,7 +26,6 @@ class ProjectLanding extends React.Component {
         fetch(path)
         .then( response => response.json() )
         .then( json => {
-            console.log(json);
             this.setState({
                 posts: json
             });
