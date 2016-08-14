@@ -46,6 +46,8 @@ class Post extends React.Component {
         return (
             <div className="content">
                 <article className="box">
+                    {h1}
+                    {h2}
                     <p dangerouslySetInnerHTML={this.getMarkdown(this.state.content.body)} />
                 </article>
             </div>
