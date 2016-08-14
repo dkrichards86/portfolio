@@ -14,7 +14,7 @@ class Post extends React.Component {
     }
 
     componentDidMount() {
-        let path = `../api/posts/${this.props.params.title}`;
+        let path = `../api/post/${this.props.params.title}`;
         
         fetch(path)
         .then( response => response.json() )
