@@ -27,107 +27,93 @@ app.get('/api', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
+//Routes
+app.post('/api/post', postEntry("post"));
+app.get('/api/post/:title', getEntry("post"));
+app.get('/api/postlist', getEntryList("post"));
 
-app.post('/api/post', function(req, res) {
-    console.log("POST: /api/post");
+app.post('/api/project', postEntry("project"));
+app.get('/api/project/:title', getEntry("project"));
+app.get('/api/projectlist', getEntryList("project"));
 
-    if (req.body.key != config.authKey) {
-        return false;
+//Higher Order Functions for routing
+function getEntry(entryType) { 
+    return function(req, res) {
+        console.log("GET: /api/" + entryType + "/" + req.params.title);
+        db.collection('posts').findOne({
+            "slug": req.params.title,
+            "type": entryType
+        }, function(err, results) {
+            if (err) {
+                console.log(err);
+            }
+    
+            if (results) {
+                res.json(results);
+            }
+            else {
+                res.json({
+                    "title": entryType.toUpperCase() + " not found",
+                    "body": "That post could not be found."
+                });
+            }
+        });
     }
+}
 
-     var dbOp = db.collection('posts').update(
-        {
-            "title": req.body.title,
-            "type": "post",
-        },
-        {
-            "title": req.body.title,
-            "type": req.body.type,
-            "header": req.body.header,
-            "subheader": req.body.subheader,
-            "body": req.body.body,
-            "metatitle": req.body.metatitle,
-            "metadesc": req.body.metadesc
-        },
-        {
-            upsert: true
+function postEntry(entryType) {
+    return function(req, res) {
+        console.log("POST: /api/" + entryType);
+    
+        if (req.body.key != config.authKey) {
+            return false;
         }
-    );
-
-    if (dbOp) return true;
-    else return false;
-});
-
-app.get('/api/post/:title', function(req, res) {
-    console.log("GET: /api/" + req.params.title);
-    db.collection('posts').findOne({
-        "title": req.params.title,
-        "type": "post"
-    }, function(err, results) {
-        if (err) {
-            console.log(err);
-        }
-
-        if (results) {
-            res.json(results);
-        }
-        else {
-            res.json({
-                "title": "Post not found",
-                "body": "That post could not be found."
-            });
-        }
-    });
-});
-
-app.post('/api/project', function(req, res) {
-    console.log("POST: /api/post");
-
-    if (req.body.key != config.authKey) {
-        return false;
+    
+        var dbOp = db.collection('posts').update(
+            {
+                "slug": req.body.slug,
+                "type": entryType,
+            },
+            {
+                "type": req.body.type,
+                "slug": req.body.slug,
+                "title": req.body.title,
+                "tagline": req.body.tagline,
+                "header": req.body.header,
+                "subheader": req.body.subheader,
+                "body": req.body.body,
+                "metatitle": req.body.metatitle,
+                "metadesc": req.body.metadesc,
+                "lastedited": new Date()
+            },
+            {
+                upsert: true
+            }
+        );
+    
+        if (dbOp) return true;
+        else return false;
     }
+}
 
-     var dbOp = db.collection('posts').update(
-        {
-            "title": req.body.title,
-            "type": "project",
-        },
-        {
-            "title": req.body.title,
-            "type": req.body.type,
-            "header": req.body.header,
-            "subheader": req.body.subheader,
-            "body": req.body.body,
-            "metatitle": req.body.metatitle,
-            "metadesc": req.body.metadesc
-        },
-        {
-            upsert: true
-        }
-    );
+function getEntryList(entryType) { 
+    return function(req, res) {
+        console.log("GET: /api/" + entryType + "list");
+        var cursor = db.collection('posts').find(
+            {
+                "type": entryType
+            },
+            {
+                "slug": 1,
+                "title": 1,
+                "tagline": 1
+            }
+        );
 
-    if (dbOp) return true;
-    else return false;
-});
-
-app.get('/api/project/:title', function(req, res) {
-    console.log("GET: /api/" + req.params.title);
-    db.collection('posts').findOne({
-        "title": req.params.title,
-        "type": "project"
-    }, function(err, results) {
-        if (err) {
-            console.log(err);
-        }
-
-        if (results) {
-            res.json(results);
-        }
-        else {
-            res.json({
-                "title": "Post not found",
-                "body": "That post could not be found."
-            });
-        }
-    });
-});
+	    cursor.toArray(function(err, doc) {
+            if (err) console.log(err);
+		
+	        res.json(doc);
+        });
+    }
+}

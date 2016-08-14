@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
+import MenuItem from "./menuitem";
 
 export default class Menu extends React.Component {
     render() {
         return (
             <nav>
-                {this.props.children}
+                <MenuItem label="Life" route="/personal" />
+                <MenuItem label="Work" route="/professional" />
+                <MenuItem label="Resume" route="/resume" />
+                <MenuItem label="Projects" route="/projects" />
+                <MenuItem label="Blog" route="/blog" />
             </nav>
         );
     }
