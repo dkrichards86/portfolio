@@ -30,6 +30,7 @@ app.get('/api', function(req, res) {
 //Routes
 app.post('/api/post', postEntry("post"));
 app.get('/api/post/:title', getEntry("post"));
+app.get('/api/postlist', getEntryList("post"));
 
 app.post('/api/project', postEntry("project"));
 app.get('/api/project/:title', getEntry("project"));
@@ -103,18 +104,16 @@ function getEntryList(entryType) {
                 "type": entryType
             },
             {
+                "slug": 1,
                 "title": 1,
                 "tagline": 1
             }
         );
 
-	var postList = cursor.map(function(doc) {
-            if (doc !== null) {
-                return doc;
-            }
+	cursor.toArray(function(err, doc) {
+            if (err) console.log(err);
+		
+	    res.json(doc);
         });
-
-        //res.json(postList);
     }
 }
-

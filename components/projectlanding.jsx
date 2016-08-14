@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import { pageHead } from './react-pagehead';
 
+import 'whatwg-fetch';
+
 const METATAGS = {
     title: "Keith Richards - Projects",
     meta: {
@@ -29,16 +31,32 @@ const PROJECTS = [
 ];
 
 class Projects extends React.Component {
+    constructor() {
+        super();
+        this.state = {posts: []};
+    }
     componentWillMount() {
-        this.projects = PROJECTS.map( (project, i) => {
-            return <Link to={project.link} className="box" key={i}>
-                    <h2>{project.title}</h2>
-                    <p>{project.content}</p>
-                </Link>;
+         let path = '../api/projectlist';
+        
+        fetch(path)
+        .then( response => response.json() )
+        .then( json => {
+            console.log(json);
+            this.setState({
+                posts: json
+            });
         });
     }
     
     render() {
+        this.projects = this.state.posts.map( (project, i) => {
+            let postLink = `projects/${project.slug}`;
+            return <Link to={postLink} className="box" key={i}>
+                    <h2>{project.title}</h2>
+                    <p>{project.tagline}</p>
+                </Link>;
+        });
+        
         return (
             <div className="content">
                 {this.projects}
