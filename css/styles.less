@@ -1,6 +1,5 @@
 @main-blue: #0288D1;
 @main-grey: #efefef;
-@import "./css/normalize.css";
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
 
@@ -96,7 +95,7 @@ aside {
 
 nav {
     width: 230px;
-    height: calc(100vh - 72px);
+    height: ~"calc(100vh - 72px)";
     padding: 16px 0;
     background: #fafafa;
     line-height: 44px;
@@ -127,7 +126,7 @@ nav {
 main {
     position: relative;
     background: #f1f1f1;
-    width: calc(100% - 230px);
+    width: ~"calc(100% - 230px)";
 }
 
 .main {
@@ -177,6 +176,7 @@ main {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+
     h1 {
         position: absolute;
         bottom: 16px;
