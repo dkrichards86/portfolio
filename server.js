@@ -110,10 +110,10 @@ function getEntryList(entryType) {
             }
         );
 
-	cursor.toArray(function(err, doc) {
+	    cursor.toArray(function(err, doc) {
             if (err) console.log(err);
 		
-	    res.json(doc);
+	        res.json(doc);
         });
     }
 }

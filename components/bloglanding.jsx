@@ -5,14 +5,14 @@ import { pageHead } from './react-pagehead';
 import 'whatwg-fetch';
 
 const METATAGS = {
-    title: "Keith Richards - Projects",
+    title: "Keith Richards - Blog",
     meta: {
         name: "description",
-        content: "Take a look at some of the Keith Richards' projects."
+        content: "Read some of my badass blog posts."
     }
 };
 
-class ProjectLanding extends React.Component {
+class BlogLanding extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -21,7 +21,7 @@ class ProjectLanding extends React.Component {
     }
     
     componentWillMount() {
-         let path = '../api/projectlist';
+         let path = '../api/postlist';
         
         fetch(path)
         .then( response => response.json() )
@@ -34,12 +34,12 @@ class ProjectLanding extends React.Component {
     }
     
     render() {
-        this.projects = this.state.posts.map( (project, i) => {
-            let postLink = `projects/${project.slug}`;
+        this.projects = this.state.posts.map( (postt, i) => {
+            let postLink = `posts/${postt.slug}`;
             
             return <Link to={postLink} className="box" key={i}>
-                    <h2>{project.title}</h2>
-                    <p>{project.tagline}</p>
+                    <h2>{postt.title}</h2>
+                    <p>{postt.tagline}</p>
                 </Link>;
         });
         
@@ -51,4 +51,4 @@ class ProjectLanding extends React.Component {
     }
 }
 
-export default pageHead(ProjectLanding, METATAGS);
+export default pageHead(BlogLanding, METATAGS);

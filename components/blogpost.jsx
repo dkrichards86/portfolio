@@ -4,7 +4,7 @@ const markdown = require('markdown').markdown;
 
 import 'whatwg-fetch';
 
-class Project extends React.Component {
+class Post extends React.Component {
     constructor() {
         super();
 
@@ -14,7 +14,7 @@ class Project extends React.Component {
     }
 
     componentDidMount() {
-        let path = `../api/project/${this.props.params.title}`;
+        let path = `../api/posts/${this.props.params.title}`;
         
         fetch(path)
         .then( response => response.json() )
@@ -55,4 +55,4 @@ class Project extends React.Component {
     }
 }
 
-export default Project;
+export default Post;
