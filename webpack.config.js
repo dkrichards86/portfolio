@@ -21,14 +21,33 @@ var config = {
         path: __dirname,
         filename: 'dist/bundle.js'
     },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-        })
-    ],
     resolve: {
         extensions: ["", ".js", ".jsx"]
     }
 };
+
+if (process.env.NODE_ENV === 'production') {
+    config.plugins = [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: true,
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            }
+        })
+    ];
+}
+else {
+    config.plugins = [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        })
+    ];
+}
 
 module.exports = config;
