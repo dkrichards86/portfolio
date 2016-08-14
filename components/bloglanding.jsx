@@ -36,7 +36,7 @@ class BlogLanding extends React.Component {
         this.projects = this.state.posts.map( (post, i) => {
             let postLink = `blog/${post.slug}`;
             
-            return <Link to={postLink} className="box" key={i}>
+            return <Link to={postLink} className="box list-item" key={i}>
                     <h2>{post.title}</h2>
                     <p>{post.tagline}</p>
                 </Link>;
