@@ -21,17 +21,17 @@ class Post extends React.Component {
         .then( response => response.json() )
         .then( json => {
             if (json.metatitle || json.metadesc) {
-            let tags = {
-                title: json.metatitle || "Keith Richards - Blog",
-                meta: {
-                    name: "description",
-                    content: json.metadesc || "A blog post by Keith Richards"
-                }
-            };
-
-            var pagehead = new Pagehead(tags);
-            pagehead.applyTags();
-        }            
+                let tags = {
+                    title: json.metatitle || "Keith Richards - Blog",
+                    meta: {
+                        name: "description",
+                        content: json.metadesc || "A blog post by Keith Richards"
+                    }
+                };
+    
+                var pagehead = new Pagehead(tags);
+                pagehead.applyTags();
+            }            
 
             this.setState({
                 content: json

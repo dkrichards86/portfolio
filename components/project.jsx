@@ -20,6 +20,19 @@ class Project extends React.Component {
         fetch(path)
         .then( response => response.json() )
         .then( json => {
+            if (json.metatitle || json.metadesc) {
+                let tags = {
+                    title: json.metatitle || "Keith Richards - Blog",
+                    meta: {
+                        name: "description",
+                        content: json.metadesc || "A blog post by Keith Richards"
+                    }
+                };
+    
+                var pagehead = new Pagehead(tags);
+                pagehead.applyTags();
+            }            
+
             this.setState({
                 content: json
             });
@@ -42,18 +55,6 @@ class Project extends React.Component {
 
         if (this.state.content.subheader) {
             h2 = <h2 dangerouslySetInnerHTML={this.getMarkdown(this.state.content.subheader)} />;
-        }
-
-        if (this.state.content.metatitle || this.state.content.metadesc) {
-            let tags = {
-                title: this.state.content.metatitle || "Keith Richards - Project",
-                meta: {
-                    name: "description",
-                    content: this.state.content.metadesc || "A project by Keith Richards"
-                }
-            };
-
-            pagehead(tags);
         }
 
         return (
