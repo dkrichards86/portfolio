@@ -9,7 +9,9 @@ var VALID_KEYS = [
 ];
     
 function Pagehead(tags) {
-    this.tags = tags;
+    if (tags) {
+        this.setTags(tags);
+    }
 }
 
 Pagehead.prototype._addTag = function(key, tagData) {
@@ -24,7 +26,30 @@ Pagehead.prototype._addTag = function(key, tagData) {
     document.head.appendChild(newTag);
 };
 
-Pagehead.prototype._addTags = function() {
+Pagehead.prototype._addTitleTag = function(text) {
+    document.title = text;
+};
+
+Pagehead.prototype.applyTags = function() {
+    this._clearExistingTags();
+    this._renderTags();
+};
+
+Pagehead.prototype._clearExistingTags = function() {
+    var elems = document.querySelectorAll(`[${PAGE_HEAD_ATTR}]`);
+
+    for (var i = 0; i < elems.length; i++) {
+        elems[i].parentNode.removeChild(elems[i]);
+    }
+};
+
+Pagehead.prototype._parseTagArray = function(key, tagData) {
+    tagData.map((oneTag) => {
+        this._addTag(key, oneTag);
+    });
+};
+
+Pagehead.prototype._renderTags = function() {
     for (var key in this.tags) {
         if (this.tags.hasOwnProperty(key) && this._validKey(key)) {
             if (key == "title") {
@@ -42,27 +67,8 @@ Pagehead.prototype._addTags = function() {
     }
 };
 
-Pagehead.prototype._addTitleTag = function(text) {
-    document.title = text;
-};
-
-Pagehead.prototype.applyTags = function() {
-    this._clearExistingTags();
-    this._addTags();
-};
-
-Pagehead.prototype._clearExistingTags = function() {
-    var elems = document.querySelectorAll(`[${PAGE_HEAD_ATTR}]`);
-
-    for (var i = 0; i < elems.length; i++) {
-        elems[i].parentNode.removeChild(elems[i]);
-    }
-};
-
-Pagehead.prototype._parseTagArray = function(key, tagData) {
-    tagData.map((oneTag) => {
-        this.addTag(key, oneTag);
-    });
+Pagehead.prototype.setTags = function(tags) {
+    this.tags = tags;
 };
 
 Pagehead.prototype._validKey = function(key) {
