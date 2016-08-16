@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 const markdown = require('markdown').markdown;
-var pagehead = require("../pagehead");
+const pagehead = require("../pagehead");
+
 import 'whatwg-fetch';
 
 class Post extends React.Component {
@@ -44,15 +45,15 @@ class Post extends React.Component {
         }
         
         if (this.state.content.metatitle || this.state.content.metadesc) {
-            var tags = {
+            let tags = {
                 title: this.state.content.metatitle || "Keith Richards - Blog",
                 meta: {
                     name: "description",
                     content: this.state.content.metadesc || "A blog post by Keith Richards"
                 }    
             };
-            
-            h1 = <h1 dangerouslySetInnerHTML={this.getMarkdown(this.state.content.header)} />;
+
+            pagehead(tags);            
         }
 
         return (

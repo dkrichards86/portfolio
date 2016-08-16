@@ -9,21 +9,21 @@ var pageHead = function(tags) {
         "title"
     ];
 
-    this._clearExistingTags();
-    this._addTags();
+    _clearExistingTags();
+    _addTags();
 
     function _addTags() {
         for (var key in tags) {
-            if (tags.hasOwnProperty(key) && this._validKey(key)) {
+            if (tags.hasOwnProperty(key) && _validKey(key)) {
                 if (key == "title") {
-                    this._addTitleTag(tags[key]);
+                    _addTitleTag(tags[key]);
                 }
                 else {
                     if (Array.isArray(tags[key])) {
-                        this._parseTagArray(key, tags[key]);
+                        _parseTagArray(key, tags[key]);
                     }
                     else {
-                        this._addTag(key, tags[key]);
+                        _addTag(key, tags[key]);
                     }
                 }
             }
@@ -36,7 +36,7 @@ var pageHead = function(tags) {
 
     function _parseTagArray(key, tagData) {
         tagData.map((oneTag) => {
-            this.addTag(key, oneTag);
+            addTag(key, oneTag);
         });
     }
 
