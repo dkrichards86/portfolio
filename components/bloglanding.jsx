@@ -12,7 +12,7 @@ const METATAGS = {
     }
 };
 
-class BlogLanding extends React.Component {
+export default class BlogLanding extends React.Component {
     constructor() {
         super();
         
@@ -56,5 +56,3 @@ class BlogLanding extends React.Component {
         );
     }
 }
-
-export default pageHead(BlogLanding, METATAGS);
