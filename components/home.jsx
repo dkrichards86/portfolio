@@ -4,16 +4,17 @@ import MetaManager from 'react-metamanager';
 
 const METATAGS = {
     title: "Keith Richards - Front End Developer in Raleigh, NC",
-    meta: {
-        name: "description",
-        content: "Check out the portfolio of Raleigh, NC based front end developer and consummate bro, Keith Richards."
-    }
+    meta: [
+        { name: "description" },
+        { content: "Check out the portfolio of Raleigh, NC based front end developer and consummate bro, Keith Richards." }
+    ]
 };
 
 export default class Home extends React.Component {
     render() {
         return (
             <div className="content" id="home">
+                <MetaManager tags={METATAGS} />
                 <div>
                     <div className="component-image">
                         <h1>Keith Richards</h1>
