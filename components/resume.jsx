@@ -13,7 +13,6 @@ export default class Resume extends React.Component {
     render() {
         return (
             <div className="content" id="resume">
-                <MetaManager tags={METATAGS} />
                 <div className="box">
                     <h1>Work Experience</h1>
                     <section className="work-experience">

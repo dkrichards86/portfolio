@@ -14,7 +14,6 @@ export default class Home extends React.Component {
     render() {
         return (
             <div className="content" id="home">
-                <MetaManager tags={METATAGS} />
                 <div>
                     <div className="component-image">
                         <h1>Keith Richards</h1>

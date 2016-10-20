@@ -57,7 +57,6 @@ export default class Project extends React.Component {
         }
 
         return (
-            <MetaManager tags={this.state.meta}>
                 <div className="content">
                     <article className="box">
                         {h1}
@@ -65,7 +64,6 @@ export default class Project extends React.Component {
                         <p dangerouslySetInnerHTML={this.getMarkdown(this.state.content.body)} />
                     </article>
                 </div>
-            </MetaManager>
         );
     }
 }

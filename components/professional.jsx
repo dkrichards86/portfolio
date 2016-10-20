@@ -13,7 +13,6 @@ export default class Professional extends React.Component {
     render() {
         return (
             <div className="content">
-                <MetaManager tags={METATAGS} />
                 <div className="box">
                     <h1>Me: Professionally</h1>
                     <p>

@@ -48,11 +48,9 @@ export default class BlogLanding extends React.Component {
         });
         
         return (
-            <MetaManager tags={METATAGS}>
                 <div className="content">
                     {this.projects}
                 </div>
-            </MetaManager>
         );
     }
 }
