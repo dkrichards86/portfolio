@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { pageHead } from './react-pagehead';
+import MetaManager from 'react-metamanager';
 
 import 'whatwg-fetch';
 
@@ -15,9 +15,12 @@ const METATAGS = {
 class BlogLanding extends React.Component {
     constructor() {
         super();
+        
         this.state = {
             posts: []
         };
+        
+        this.postDate = null;
     }
     
     componentWillMount() {
@@ -28,9 +31,11 @@ class BlogLanding extends React.Component {
         .then( json => {
             this.setState({
                 posts: json
-            });
+            }, this.setDate());
         });
     }
+    
+    
     
     render() {
         this.projects = this.state.posts.map( (post, i) => {
@@ -43,9 +48,11 @@ class BlogLanding extends React.Component {
         });
         
         return (
-            <div className="content">
-                {this.projects}
-            </div>
+            <MetaManager tags={METATAGS}>
+                <div className="content">
+                    {this.projects}
+                </div>
+            </MetaManager>
         );
     }
 }

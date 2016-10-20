@@ -1,5 +1,5 @@
 import React from 'react';
-import { pageHead } from './react-pagehead';
+import MetaManager from 'react-metamanager';
 
 const METATAGS = {
     title: "Keith Richards - Resume",
@@ -9,10 +9,11 @@ const METATAGS = {
     }
 };
 
-class Resume extends React.Component {
+export default class Resume extends React.Component {
     render() {
         return (
             <div className="content" id="resume">
+                <MetaManager tags={METATAGS} />
                 <div className="box">
                     <h1>Work Experience</h1>
                     <section className="work-experience">
@@ -80,5 +81,3 @@ class Resume extends React.Component {
         );
     }
 }
-
-export default pageHead(Resume, METATAGS);

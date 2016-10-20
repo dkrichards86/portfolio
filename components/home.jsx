@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { pageHead } from './react-pagehead';
+import MetaManager from 'react-metamanager';
 
 const METATAGS = {
     title: "Keith Richards - Front End Developer in Raleigh, NC",
@@ -10,10 +10,11 @@ const METATAGS = {
     }
 };
 
-class Home extends React.Component {
+export default class Home extends React.Component {
     render() {
         return (
             <div className="content" id="home">
+                <MetaManager tags={METATAGS} />
                 <div>
                     <div className="component-image">
                         <h1>Keith Richards</h1>
@@ -21,7 +22,7 @@ class Home extends React.Component {
                     <div className="box">
                         <section className="blurb">
                             <p>
-                                I am a professional front end developer, an amateur powerlifter, a former Marine, and the consummate bro.
+                                I am a front-end developer, amateur powerlifter, former Marine, and the consummate bro.
                             </p>
                             <div className="home-buttons">
                                 <Link to="/personal" className="home-btn">About Me</Link>
@@ -34,5 +35,3 @@ class Home extends React.Component {
         );
     }
 }
-
-export default pageHead(Home, METATAGS);

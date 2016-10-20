@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { pageHead } from './react-pagehead';
+import MetaManager from 'react-metamanager';
 
 import 'whatwg-fetch';
 
@@ -12,7 +12,7 @@ const METATAGS = {
     }
 };
 
-class ProjectLanding extends React.Component {
+export default class ProjectLanding extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -43,11 +43,11 @@ class ProjectLanding extends React.Component {
         });
         
         return (
-            <div className="content">
-                {this.projects}
-            </div>
+            <MetaManager tags={METATAGS}>
+                <div className="content">
+                    {this.projects}
+                </div>
+            </MetaManager>
         );
     }
 }
-
-export default pageHead(ProjectLanding, METATAGS);
