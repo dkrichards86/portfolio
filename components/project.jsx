@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 const markdown = require('markdown').markdown;
-const Pagehead = require('../pagehead');
+import MetaManager from 'react-metamanager';
 
 import 'whatwg-fetch';
 
-class Project extends React.Component {
+export default class Project extends React.Component {
     constructor() {
         super();
 
@@ -20,21 +20,20 @@ class Project extends React.Component {
         fetch(path)
         .then( response => response.json() )
         .then( json => {
+            let tags = null;
             if (json.metatitle || json.metadesc) {
-                let tags = {
+                tags = {
                     title: json.metatitle || "Keith Richards - Blog",
                     meta: {
                         name: "description",
                         content: json.metadesc || "A blog post by Keith Richards"
                     }
                 };
-    
-                var pagehead = new Pagehead(tags);
-                pagehead.applyTags();
             }            
 
             this.setState({
-                content: json
+                content: json,
+                meta: tags
             });
         });
     }
@@ -58,15 +57,15 @@ class Project extends React.Component {
         }
 
         return (
-            <div className="content">
-                <article className="box">
-                    {h1}
-                    {h2}
-                    <p dangerouslySetInnerHTML={this.getMarkdown(this.state.content.body)} />
-                </article>
-            </div>
+            <MetaManager tags={this.state.meta}>
+                <div className="content">
+                    <article className="box">
+                        {h1}
+                        {h2}
+                        <p dangerouslySetInnerHTML={this.getMarkdown(this.state.content.body)} />
+                    </article>
+                </div>
+            </MetaManager>
         );
     }
 }
-
-export default Project;

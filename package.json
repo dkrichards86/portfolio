@@ -22,10 +22,12 @@
     "less": "^2.7.1",
     "less-plugin-clean-css": "^1.5.1",
     "markdown": "^0.5.0",
+    "meta-manager": "^1.0.0",
     "mongodb": "~2.2.5",
     "react": "15.2.0",
     "react-addons-css-transition-group": "15.2.0",
     "react-dom": "15.2.0",
+    "react-metamanager": "^1.0.0",
     "react-pagehead": "1.0.6",
     "react-router": "2.3.0",
     "whatwg-fetch": "^1.0.0"

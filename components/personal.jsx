@@ -1,5 +1,5 @@
 import React from 'react';
-import { pageHead } from './react-pagehead';
+import MetaManager from 'react-metamanager';
 
 const METATAGS = {
     title: "Keith Richards - Biography",
@@ -9,10 +9,11 @@ const METATAGS = {
     }
 };
 
-class Personal extends React.Component {
+export default class Personal extends React.Component {
     render() {
         return (
             <div className="content">
+                <MetaManager tags={METATAGS} />
                 <div className="box">
                     <h1>Me: Personally</h1>
                     <p>
@@ -67,5 +68,3 @@ class Personal extends React.Component {
         );
     }
 }
-
-export default pageHead(Personal, METATAGS);
