@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 const markdown = require('markdown').markdown;
-const Pagehead = require('../pagehead');
+const Pagehead = require("../pagehead");
 
 import 'whatwg-fetch';
 
-class Project extends React.Component {
+class Post extends React.Component {
     constructor() {
         super();
 
@@ -15,27 +15,16 @@ class Project extends React.Component {
     }
 
     componentDidMount() {
-        let path = `../api/project/${this.props.params.title}`;
+        let path = `../api/post/${this.props.params.title}`;
         
         fetch(path)
         .then( response => response.json() )
         .then( json => {
-            if (json.metatitle || json.metadesc) {
-                let tags = {
-                    title: json.metatitle || "Keith Richards - Blog",
-                    meta: {
-                        name: "description",
-                        content: json.metadesc || "A blog post by Keith Richards"
-                    }
-                };
-    
-                var pagehead = new Pagehead(tags);
-                pagehead.applyTags();
-            }            
-
             this.setState({
                 content: json
             });
+
+            if json
         });
     }
     
@@ -46,9 +35,9 @@ class Project extends React.Component {
     }
     
     render() {
-	let h1;
+    	let h1;
         let h2;
-
+        
         if (this.state.content.header) {
             h1 = <h1 dangerouslySetInnerHTML={this.getMarkdown(this.state.content.header)} />;
         }
@@ -56,8 +45,19 @@ class Project extends React.Component {
         if (this.state.content.subheader) {
             h2 = <h2 dangerouslySetInnerHTML={this.getMarkdown(this.state.content.subheader)} />;
         }
+        
+        if (this.state.content.metatitle || this.state.content.metadesc) {
+            let tags = {
+                title: this.state.content.metatitle || "Keith Richards - Blog",
+                meta: {
+                    name: "description",
+                    content: this.state.content.metadesc || "A blog post by Keith Richards"
+                }    
+            };
 
-        return (
+            var pagehead = new Pagehead(tags);
+            pagehead.applyTags();
+        }        return (
             <div className="content">
                 <article className="box">
                     {h1}
@@ -69,4 +69,4 @@ class Project extends React.Component {
     }
 }
 
-export default Project;
+export default Post;

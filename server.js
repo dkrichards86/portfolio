@@ -106,11 +106,17 @@ function getEntryList(entryType) {
             {
                 "slug": 1,
                 "title": 1,
-                "tagline": 1
+                "tagline": 1,
+                "lastedited": 1
+            }
+        )
+        .sort(
+	    {
+                "lastedited": -1
             }
         );
 
-	    cursor.toArray(function(err, doc) {
+        cursor.toArray(function(err, doc) {
             if (err) console.log(err);
 		
 	        res.json(doc);
