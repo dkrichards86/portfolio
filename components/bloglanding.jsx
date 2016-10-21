@@ -6,10 +6,10 @@ import 'whatwg-fetch';
 
 const METATAGS = {
     title: "Keith Richards - Blog",
-    meta: {
+    meta: [{
         name: "description",
         content: "Read some of my badass blog posts."
-    }
+    }]
 };
 
 export default class BlogLanding extends React.Component {
@@ -48,9 +48,11 @@ export default class BlogLanding extends React.Component {
         });
         
         return (
+            <MetaManager tags={METATAGS}>
                 <div className="content">
                     {this.projects}
                 </div>
+            </MetaManager>
         );
     }
 }

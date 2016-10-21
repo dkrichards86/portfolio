@@ -24,10 +24,10 @@ export default class Project extends React.Component {
             if (json.metatitle || json.metadesc) {
                 tags = {
                     title: json.metatitle || "Keith Richards - Blog",
-                    meta: {
+                    meta: [{
                         name: "description",
                         content: json.metadesc || "A blog post by Keith Richards"
-                    }
+                    }]
                 };
             }            
 
@@ -58,6 +58,7 @@ export default class Project extends React.Component {
 
         return (
                 <div className="content">
+                    <MetaManager tags={this.state.meta} />
                     <article className="box">
                         {h1}
                         {h2}

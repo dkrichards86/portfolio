@@ -3,16 +3,17 @@ import MetaManager from 'react-metamanager';
 
 const METATAGS = {
     title: "Keith Richards - Professional Life",
-    meta: {
+    meta: [{
         name: "description",
         content: "A brief introduction to the professional life of Keith Richards, a Raleigh, NC based web developer."
-    }
+    }]
 };
 
 export default class Professional extends React.Component {
     render() {
         return (
             <div className="content">
+                <MetaManager tags={METATAGS} />
                 <div className="box">
                     <h1>Me: Professionally</h1>
                     <p>
