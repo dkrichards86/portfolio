@@ -5,8 +5,7 @@ import MetaManager from 'react-metamanager';
 const METATAGS = {
     title: "Keith Richards - Front End Developer in Raleigh, NC",
     meta: [
-        { name: "description" },
-        { content: "Check out the portfolio of Raleigh, NC based front end developer and consummate bro, Keith Richards." }
+        { name: "description", content: "Check out the portfolio of Raleigh, NC based front end developer and consummate bro, Keith Richards." }
     ]
 };
 
