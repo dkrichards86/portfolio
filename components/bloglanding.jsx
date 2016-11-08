@@ -31,7 +31,7 @@ export default class BlogLanding extends React.Component {
         .then( json => {
             this.setState({
                 posts: json
-            }, this.setDate());
+            });
         });
     }
     
