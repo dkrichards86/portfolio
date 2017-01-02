@@ -35,15 +35,14 @@ export default class Professional extends React.Component {
                         </li>
                         <li>
                             I gained familiarity with Python 2.7 through employment.
-                            I like Python; It's elegant.
+                            I like Python - it's elegant.
                         </li>
                         <li>
                             I self-learned React and wrote a real estate search 
                             application in it. The application was done in ES6 syntax,
                             and transpiled via Babel. In the process, I learned
-                            about NPM, Webpack, and V8JS. I'm still very hesitant
-                            to call myself a JavaScript developer though. Pre-ES6
-                            syntax is a trip.
+                            about NPM, Webpack, and V8JS. I enjoy JavaScript - it
+                            bring the web to life.
                         </li>
                         <li>
                             I received a certification in MongoDB from MongoDB

@@ -13,11 +13,21 @@ export default class Resume extends React.Component {
     render() {
         return (
             <div className="content" id="resume">
+                <MetaManager tags={METATAGS} />
                 <div className="box">
                     <h1>Work Experience</h1>
                     <section className="work-experience">
+                        <h2>Web Specialist - RTI International</h2>
+                        <span>Coming Soon!</span>
+                        <ul>
+                            <li>
+                                Starting on Jan 9! Stay tuned!
+                            </li>                  
+                        </ul>
+                    </section>
+                    <section className="work-experience">
                         <h2>Web Applications Developer - Dakno Marketing</h2>
-                        <span>April 2015 - Present</span>
+                        <span>April 2015 - December 2016</span>
                         <ul>
                             <li>
                                 Develop real estate search application using React,

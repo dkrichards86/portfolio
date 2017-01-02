@@ -10,7 +10,6 @@ export default class Menu extends React.Component {
                 <MenuItem label="Work" route="/professional" />
                 <MenuItem label="Resume" route="/resume" />
                 <MenuItem label="Projects" route="/projects" />
-                <MenuItem label="Blog" route="/blog" />
             </nav>
         );
     }
