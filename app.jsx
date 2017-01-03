@@ -33,7 +33,6 @@ ReactDOM.render(
             <Route path="projects/:title" component={Project} />
             <Route path="resume" component={Resume} />
         </Route>
-        <Route path="*" component={Invalid}/>
     </Router>,
     document.getElementById('app')
 );

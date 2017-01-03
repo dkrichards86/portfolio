@@ -4,8 +4,12 @@
   "description": "Portfolio",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack --optimize-minimize && lessc --clean-css css/styles.less dist/styles.css",
-    "build:dev": "NODE_ENV=development webpack && lessc css/styles.less dist/styles.css"
+    "build": "npm run compile && npm run less",
+    "build:dev": "npm run compile:dev && npm run less:dev",
+    "compile": "NODE_ENV=production webpack --optimize-minimize",
+    "compile:dev": "NODE_ENV=development webpack",
+    "less": "lessc --clean-css css/styles.less dist/styles.css",
+    "less:dev": "lessc css/styles.less dist/styles.css"
   },
   "author": "Keith Richards",
   "license": "ISC",
