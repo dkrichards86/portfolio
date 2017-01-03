@@ -43,9 +43,9 @@ export default class ProjectLanding extends React.Component {
         
         return (
             <MetaManager tags={METATAGS}>
-                <div className="content">
+                <article className="content">
                     {this.projects}
-                </div>
+                </article>
             </MetaManager>
         );
     }

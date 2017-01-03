@@ -12,7 +12,7 @@ const METATAGS = {
 export default class Personal extends React.Component {
     render() {
         return (
-            <div className="content">
+            <article className="content">
                 <MetaManager tags={METATAGS} />
                 <div className="box">
                     <h1>Me: Personally</h1>
@@ -64,7 +64,7 @@ export default class Personal extends React.Component {
                         </li>
                     </ul>
                 </div>
-            </div>
+            </article>
         );
     }
 }

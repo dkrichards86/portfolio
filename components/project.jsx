@@ -57,14 +57,14 @@ export default class Project extends React.Component {
         }
 
         return (
-                <div className="content">
+                <article className="content">
                     <MetaManager tags={this.state.meta} />
                     <article className="box">
                         {h1}
                         {h2}
                         <p dangerouslySetInnerHTML={this.getMarkdown(this.state.content.body)} />
                     </article>
-                </div>
+                </article>
         );
     }
 }
