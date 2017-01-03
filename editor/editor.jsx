@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, DropdownItem } from './dropdown';
+import { Dropdown } from './dropdown';
 import Input from './input';import TextArea from './textarea';
 
 import 'whatwg-fetch';

@@ -10,8 +10,3 @@ export default class MenuItem extends React.Component {
         );
     }
 }
-
-MenuItem.propTypes = {
-    label: React.PropTypes.string.isRequired,
-    route: React.PropTypes.string.isRequired
-}
