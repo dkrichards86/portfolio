@@ -34,7 +34,7 @@ export default class Resume extends React.Component {
                                     href="http://www.rti.org/expert/keith-richards" 
                                     title="Keith Richards RTI biography"
                                     target="_blank">
-                                    View my RTI Bio!
+                                    View my RTI Bio
                                 </a>
                             </li>
                         </ul>
