@@ -17,12 +17,26 @@ export default class Resume extends React.Component {
                 <div className="box">
                     <h1>Work Experience</h1>
                     <section className="work-experience">
-                        <h2>Web Specialist - RTI International</h2>
-                        <span>Coming Soon!</span>
+                        <h2>Front-end Developer - RTI Center for Data Science</h2>
+                        <span>Jan 2017 - Present</span>
                         <ul>
                             <li>
-                                Starting on Jan 9! Stay tuned!
-                            </li>                  
+                                Work with data scientists, researchers, and statisticians
+                                to create visualizations andapplications to facilitate
+                                the analysis of data.
+                            </li>
+                            <li>
+                                Develop open-source tools and applications to support 
+                                the Center for Data Science.
+                            </li>
+                            <li>
+                                <a 
+                                    href="http://www.rti.org/expert/keith-richards" 
+                                    title="Keith Richards RTI biography"
+                                    target="_blank">
+                                    View my RTI Bio!
+                                </a>
+                            </li>
                         </ul>
                     </section>
                     <section className="work-experience">
